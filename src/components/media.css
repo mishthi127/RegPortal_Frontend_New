@@ -1,0 +1,70 @@
+.fotterbg {
+  background-image: url("../assets/background-pattern.svg"); /* PC background */
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  background-position: 0 -190px;
+}
+
+/* 🌐 For mobile screens (< sm in Tailwind = max-width: 639px) */
+@media (max-width: 639px) {
+  .fotterbg {
+    background-image: url("../assets/mbbgpatternwh.svg"); /* mobile background */
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+    background-position: 0 -190px;
+  }
+}
+
+.pixel-grid {
+  display: grid;
+  grid-template-columns: repeat(36, 20px);
+  grid-template-rows: repeat(17, 20px);
+  width: calc(36 * 20px);
+  height: calc(17 * 20px);
+}
+
+@media (max-width: 640px) {
+  .pixel-grid {
+    grid-template-columns: repeat(36, 6.68px);
+    grid-template-rows: repeat(17, 6.68px);
+    width: calc(36 * 6.68px);
+    height: calc(17 * 6.68px);
+  }
+}
+
+.pixelbg{
+  background-image: url("../assets/background-pattern.svg"); /* PC background */
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  background-position: center;
+}
+
+/* 🌐 For mobile screens (< sm in Tailwind = max-width: 639px) */
+@media (max-width: 639px) {
+  .pixelbg{
+    background-image: url("../assets/mbbgpatternwh.svg"); /* mobile background */
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+    background-position: center;
+  }
+}
+
+.landingbg{
+  background-image: url("../assets/background-pattern.svg"); /* PC background */
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  background-position: center;
+}
+
+/* 🌐 For mobile screens (< sm in Tailwind = max-width: 639px) */
+@media (max-width: 639px) {
+  .landingbg{
+    background-image: url("../assets/mbbgpatternwh.svg"); /* mobile background */
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+    background-position: center;
+  }
+}
+
+
+
