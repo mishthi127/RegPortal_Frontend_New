@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { GoogleLogin } from '@react-oauth/google';
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = process.env.BACKEND_URL;
 
 function LoginForm() {
   const [email, setEmail] = useState('');

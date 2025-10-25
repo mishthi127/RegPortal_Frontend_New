@@ -4,7 +4,7 @@ import './RegistrationForm.css';
 import { GoogleLogin } from '@react-oauth/google';
 import countryCodes from './countryCodes'; // Make sure you have this file
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = process.env.BACKEND_URL;
 
 function RegistrationForm() {
   const [profile, setProfile] = useState({

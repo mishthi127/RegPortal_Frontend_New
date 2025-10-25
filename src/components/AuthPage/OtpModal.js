@@ -7,7 +7,7 @@ import { ReactComponent as AuthFrame } from '../../assets/auth-frame.svg';
 import { ReactComponent as OtpDeco } from '../../assets/otp-deco.svg';
 import { ReactComponent as InputDeco } from '../../assets/otp-input-deco.svg';
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = process.env.BACKEND_URL;
 
 const OtpModal = ({ onClose, onVerifySuccess, email, onResend }) => { 
   const [otp, setOtp] = useState('');

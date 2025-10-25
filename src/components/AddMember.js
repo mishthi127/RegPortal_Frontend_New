@@ -6,6 +6,9 @@ import background from '../assets/bg_add.svg';
 // import addmemform from '../assets/addmemform.svg';
 
 export function AddMember() {
+
+    const backendUrl = process.env.BACKEND_URL;
+
     const [members, setMembers] = useState([
         { id: null, tempId: crypto.randomUUID(), name: "", email: "", gender: "Male", phone: "", collegename:"", city:"", state:"" }
     ]);
@@ -33,7 +36,7 @@ export function AddMember() {
         }
 
         axios
-        .get(`http://localhost:8000/profile/`, {
+        .get(`${backendUrl}/profile/`, {
             headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => setProfile(res.data))
@@ -68,7 +71,7 @@ export function AddMember() {
         const token = localStorage.getItem("access");
         if (id) {
             try {
-                const response = await fetch(`http://127.0.0.1:8000/Participantdata/Participant/${id}/`, {
+                const response = await fetch(`${backendUrl}/Participantdata/Participant/${id}/`, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
@@ -85,7 +88,7 @@ export function AddMember() {
         }
 
         
-        const response = await fetch("http://127.0.0.1:8000/Participantdata/Participant/", {
+        const response = await fetch(`${backendUrl}/Participantdata/Participant/`, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${token}` // Include token here too
@@ -154,7 +157,7 @@ export function AddMember() {
             await Promise.all(
                 members.map(async (member) => {
                     const token = localStorage.getItem('access');
-                    const response = await fetch("http://127.0.0.1:8000/Participantdata/Participant/", {
+                    const response = await fetch(`${backendUrl}/Participantdata/Participant/`, {
                         method: "POST",
                         headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
                         //headers: { "Content-Type": "application/json" },
@@ -187,10 +190,9 @@ export function AddMember() {
     };
 
     const displayNames = async() => {
-        // const response = await fetch("http://127.0.0.1:8000/Participantdata/Participant/");
 
         const token = localStorage.getItem("access");
-        const response = await fetch("http://127.0.0.1:8000/Participantdata/Participant/", {
+        const response = await fetch(`${backendUrl}/Participantdata/Participant/`, {
             headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json"

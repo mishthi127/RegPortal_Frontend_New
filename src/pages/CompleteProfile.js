@@ -11,7 +11,7 @@ import DecoratedButton from '../components/AuthPage/DecoratedButton.js';
 import { ReactComponent as CountryCodeInputBG } from '../assets/countryCode-input-bg.svg';
 import { ReactComponent as InputDeco } from '../assets/input-deco.svg';
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = process.env.BACKEND_URL;
 
 const CompleteProfilePage = () => {
   const navigate = useNavigate(); // Using React Router's navigate

@@ -19,10 +19,12 @@ export const CompModules = forwardRef((props, ref) => {
   const containerRef = useRef(null);
   const wrapperRef = useRef(null);
 
+  const backendUrl = process.env.BACKEND_URL;
+
   // Fetch modules from backend
   useEffect(() => {
     setLoading(true);
-    fetch("http://127.0.0.1:8000/api/competitions/", {
+    fetch(`${backendUrl}/api/competitions/`, {
       method: "GET",
       credentials: "include",
     })

@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import authorPlaceholder from '../assets/author-placeholder.png';
 
 const ProfileDropdown = ({ user, onLogout, onTabClick }) => {
+
+  const backendUrl = process.env.BACKEND_URL;
+
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -21,7 +24,7 @@ const ProfileDropdown = ({ user, onLogout, onTabClick }) => {
 
   const profileImage =
     user?.img && !user.img.includes('user-default.png')
-      ? `http://localhost:8000${user.img}`
+      ? `${backendUrl}${user.img}`
       : authorPlaceholder;
 
   return (

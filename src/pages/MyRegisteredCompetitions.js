@@ -41,6 +41,7 @@ function MyRegistrations() {
     fetchCompetitions();
   }, []);
 
+  const backendUrl = process.env.BACKEND_URL;
 
   return (
     <div
@@ -71,7 +72,7 @@ function MyRegistrations() {
                   >
                     <div className="relative w-full">
                       <img
-                        src={"http://localhost:8000" + comp.event.image}
+                        src={backendUrl + comp.event.image}
                         alt={comp.event.event_name || "Competition"}
                         className="w-full md:w-[90%] lg:w-[95%] h-auto object-contain mx-auto rounded-xl"
                       />

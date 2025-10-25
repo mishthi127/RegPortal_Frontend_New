@@ -8,12 +8,14 @@ export default function Modules({ module }) {
   const [competitions, setCompetitions] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const backendUrl = process.env.BACKEND_URL;
+
   // Fetch competitions of this module on hover
   const fetchCompetitions = async () => {
     if (competitions.length > 0) return; // already fetched
     setLoading(true);
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/competitions/", {
+      const res = await fetch(`${backendUrl}/api/competitions/`, {
         method: "GET",
         credentials: "include",
       });

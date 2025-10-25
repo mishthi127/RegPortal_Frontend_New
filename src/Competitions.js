@@ -4,8 +4,10 @@ import "././assets/background-pattern.svg";
 const Competitions = ({ onSelectCompetition }) => {
   const [competitions, setCompetitions] = useState([]);
 
+  const backendUrl = process.env.BACKEND_URL;
+
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/competitions/") // your backend API
+    fetch(`${backendUrl}/api/competitions/`) // your backend API
       .then((response) => response.json())
       .then((data) => setCompetitions(data))
       .catch((error) => console.error("Error fetching competitions:", error));

@@ -8,6 +8,8 @@ const Filter = () => {
   const [filter3, setFilter3] = useState("");
   const [competitions, setCompetitions] = useState([]);
 
+  const backendUrl = process.env.BACKEND_URL;
+
   const handleFilter = async () => {
     try {
       const params = {};
@@ -16,7 +18,7 @@ const Filter = () => {
       if (filter2) params.filter2 = filter2;
       if (filter3) params.filter3 = filter3;
 
-      const res = await axios.get("http://localhost:8000/show-all-competitions/", {
+      const res = await axios.get(`${backendUrl}/show-all-competitions/`, {
         params,
       });
 

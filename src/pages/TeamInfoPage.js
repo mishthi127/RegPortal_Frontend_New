@@ -9,7 +9,7 @@ import Stepper from '../components/AuthPage/Stepper.js';
 import OtpModal from '../components/AuthPage/OtpModal.js';
 
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = process.env.BACKEND_URL;
 
 const TeamInfoPage = () => {
   const navigate = useNavigate();

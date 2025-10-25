@@ -110,8 +110,10 @@ function CompetitionsList() {
   // modal state - selected competition to show details
   const [selectedComp, setSelectedComp] = useState(null);
 
+  const backendUrl = process.env.BACKEND_URL;
+
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/competitions/", {
+    fetch(`${backendUrl}/api/competitions/`, {
       method: "GET",
       credentials: "include",
     })
@@ -250,7 +252,7 @@ function CompetitionsList() {
                 <div
                   key={comp.id}
                   className="competition-card card double-notch-all lg:w-[390px] lg:h-[281px] relative overflow-hidden m-[0.5rem]"
-                  style={{background:`url(http://localhost:8000${comp.image}) center/cover no-repeat `}}
+                  style={{background:`url(${backendUrl}${comp.image}) center/cover no-repeat `}}
                 >
                   <div
                     className="competition-default"
