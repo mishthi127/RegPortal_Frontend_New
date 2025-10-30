@@ -9,7 +9,7 @@ import Stepper from '../components/AuthPage/Stepper.js';
 import OtpModal from '../components/AuthPage/OtpModal.js';
 
 
-const BASE_URL = process.env.BACKEND_URL;
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
 const TeamInfoPage = () => {
   const navigate = useNavigate();

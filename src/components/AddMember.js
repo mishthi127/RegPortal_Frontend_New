@@ -7,7 +7,7 @@ import background from '../assets/bg_add.svg';
 
 export function AddMember() {
 
-    const backendUrl = process.env.BACKEND_URL;
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
     const [members, setMembers] = useState([
         { id: null, tempId: crypto.randomUUID(), name: "", email: "", gender: "Male", phone: "", collegename:"", city:"", state:"" }

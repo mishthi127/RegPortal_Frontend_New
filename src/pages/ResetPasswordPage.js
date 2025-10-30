@@ -5,7 +5,7 @@ import AuthLayout from '../components/AuthPage/AuthLayout.js';
 import DecoratedPasswordInput from '../components/AuthPage/DecoratedPasswordInput.js';
 import DecoratedButton from '../components/AuthPage/DecoratedButton.js';
 
-const BASE_URL = process.env.BACKEND_URL;
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
 const ResetPasswordPage = () => {
     const [password, setPassword] = useState('');

@@ -5,7 +5,7 @@ import authorPlaceholder from '../assets/author-placeholder.png';
 
 const ProfileDropdown = ({ user, onLogout, onTabClick }) => {
 
-  const backendUrl = process.env.BACKEND_URL;
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);

@@ -8,7 +8,7 @@ export default function Modules({ module }) {
   const [competitions, setCompetitions] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const backendUrl = process.env.BACKEND_URL;
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   // Fetch competitions of this module on hover
   const fetchCompetitions = async () => {

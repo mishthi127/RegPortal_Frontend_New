@@ -19,7 +19,7 @@ import LoadingScreen from "../components/LoadingScreen.js";
 import logo from '../assets/logo.svg';
 import MyRegistrations from "./MyRegisteredCompetitions.js";
 
-const BASE_URL = process.env.BACKEND_URL;
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
 const ProfilePage = () => {
   const navigate = useNavigate();

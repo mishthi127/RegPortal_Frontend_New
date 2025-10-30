@@ -4,7 +4,7 @@ import "././assets/background-pattern.svg";
 const Competitions = ({ onSelectCompetition }) => {
   const [competitions, setCompetitions] = useState([]);
 
-  const backendUrl = process.env.BACKEND_URL;
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     fetch(`${backendUrl}/api/competitions/`) // your backend API

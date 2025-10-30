@@ -19,7 +19,7 @@ export const CompModules = forwardRef((props, ref) => {
   const containerRef = useRef(null);
   const wrapperRef = useRef(null);
 
-  const backendUrl = process.env.BACKEND_URL;
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   // Fetch modules from backend
   useEffect(() => {
