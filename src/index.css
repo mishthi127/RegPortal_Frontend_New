@@ -88,7 +88,7 @@ body {
   scrollbar-width: none;    /* Firefox */
 }
 
-/* ---------- Flower rotation helpers ---------- */
+/* ---------- Flower rotation helpers ---------- 
 @layer utilities {
   .flower-rotating {
     @apply animate-flower-spin;
@@ -123,6 +123,7 @@ body {
     animation: none !important;
   }
 }
+  */
 /* Hide scrollbar but still allow scrolling */
 .no-scrollbar::-webkit-scrollbar {
   display: none;

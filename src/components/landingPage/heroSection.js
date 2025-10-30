@@ -22,6 +22,7 @@ const HeroSection = ({ isAuthenticated }) => {
     backgroundSize: "100% auto",
   };
 
+  /*
   // Dynamic, responsive flower positions
   const [flowers, setFlowers] = useState([]);
 
@@ -59,14 +60,14 @@ useEffect(() => {
   window.addEventListener("resize", updateFlowers);
   return () => window.removeEventListener("resize", updateFlowers);
 }, []);
-
+*/
   return (
     <div className="text-alch-cream overflow-hidden">
       <main className="relative flex flex-col justify-center items-center text-center min-h-screen py-16 sm:py-24 md:py-32">
         {/* Dark background with pattern */}
         <div className="absolute inset-0 bg-alch-dark pixelbg"></div>
 
-        {/* Flowers */}
+      {/*  Flowers 
         <div className="absolute inset-0 w-full h-full pointer-events-none">
           {flowers.map((f, i) => (
             <motion.img
@@ -97,7 +98,8 @@ useEffect(() => {
             />
           ))}
         </div>
-
+       */}
+       
         {/* Text */}
 <motion.h1
   initial={{ opacity: 0, scale: 0.85 }}
