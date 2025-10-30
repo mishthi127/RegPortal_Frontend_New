@@ -8,7 +8,7 @@ import DecoratedButton from '../components/AuthPage/DecoratedButton.js';
 import GoogleButton from '../components/AuthPage/GoogleButton.js';
 import { ReactComponent as NewInputDeco } from '../assets/new-input-deco.svg';
 
-const BASE_URL = process.env.BACKEND_URL;
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
 const SignInPage = () => {
   const [email, setEmail] = useState('');

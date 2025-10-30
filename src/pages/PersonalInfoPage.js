@@ -13,8 +13,7 @@ import GoogleButton from '../components/AuthPage/GoogleButton.js'; // Your custo
 import { ReactComponent as CountryCodeInputBG } from '../assets/countryCode-input-bg.svg';
 import { ReactComponent as InputDeco } from '../assets/input-deco.svg';
 
-// ✅ 1. BASE_URL set to match your old file
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
 const PersonalInfoPage = () => {
   const navigate = useNavigate();

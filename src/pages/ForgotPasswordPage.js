@@ -6,7 +6,7 @@ import DecoratedInput from '../components/AuthPage/DecoratedInput.js';
 import DecoratedButton from '../components/AuthPage/DecoratedButton.js';
 import OtpModal from '../components/AuthPage/OtpModal.js';
 
-const BASE_URL = process.env.BACKEND_URL;
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
 const ForgotPasswordPage = () => {
     const [isOtpModalOpen, setIsOtpModalOpen] = useState(false);

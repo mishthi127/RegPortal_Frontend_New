@@ -110,7 +110,7 @@ function CompetitionsList() {
   // modal state - selected competition to show details
   const [selectedComp, setSelectedComp] = useState(null);
 
-  const backendUrl = process.env.BACKEND_URL;
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     fetch(`${backendUrl}/api/competitions/`, {

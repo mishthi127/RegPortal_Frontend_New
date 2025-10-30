@@ -8,7 +8,7 @@ const Filter = () => {
   const [filter3, setFilter3] = useState("");
   const [competitions, setCompetitions] = useState([]);
 
-  const backendUrl = process.env.BACKEND_URL;
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   const handleFilter = async () => {
     try {
