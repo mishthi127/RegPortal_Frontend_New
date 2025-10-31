@@ -21,7 +21,7 @@ export function Footer({ scrollToFAQ, scrollToTestimonials, scrollToComp ,ref })
                 </div>
             </div>
             <div 
-                className="w-full flex-grow bg-alch-dark fotterbg"
+                className="w-full flex-grow bg-alch-dark"
             >
                 <div
                     className="w-full h-full flex flex-col"

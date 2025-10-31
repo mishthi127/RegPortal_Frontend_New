@@ -41,6 +41,37 @@ const LandingPage = () => {
   const testimonialRef = useRef(null);
   const footerRef = useRef(null);
   const [openindex, setOpenindex] = useState([]);
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+  let ticking = false;
+
+  const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            // scrolling down → hide header
+            setShowHeader(false);
+          } else {
+            // scrolling up → show header
+            setShowHeader(true);
+          }
+          setLastScrollY(currentScrollY);
+          ticking = false;
+        });
+
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
+
 
   const handleTabClickFromDropdown = (tabIndex) => {
     setOpenindex([tabIndex]); 
@@ -150,9 +181,9 @@ const LandingPage = () => {
       {loading && <Preloader />}
 
       {/* Page Content */}
-      <div className='pixelbg bg-alch-dark'>
+      
         {/* laptop */}
-        <header className="top-0 z-30 hidden lg:block">
+        <header className={`top-0 z-30 hidden lg:block fixed shadow-lg w-full bg-alch-dark ${showHeader ? 'header-visible' : 'header-hidden'}`}>
           <nav className="relative z-10 flex justify-between items-center py-4 px-4 sm:px-8">
             <Link to="/">
               <div>
@@ -189,7 +220,7 @@ const LandingPage = () => {
         </header>
 
         {/* mobile */}
-        <header className="top-0 z-30 lg:hidden">
+        <header className={`top-0 z-30 lg:hidden fixed w-full bg-alch-dark ${showHeader ? 'header-visible' : 'header-hidden'}`}>
           <nav className="relative z-10 flex justify-between items-center py-4 px-4 sm:px-8">
             <Link to="/">
               <div>
@@ -257,9 +288,10 @@ const LandingPage = () => {
             )}
           </div>
         </div>
+      
 
-        <HeroSection isAuthenticated={isAuthenticated} />
-      </div>
+      <HeroSection isAuthenticated={isAuthenticated} />
+
       <div className='landingbg'>
         <CompModules ref={compRef}/>
       </div>

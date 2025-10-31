@@ -61,7 +61,7 @@ useEffect(() => {
 }, []);
 
   return (
-    <div className="text-alch-cream overflow-hidden">
+    <div className="text-alch-cream overflow-hidden bg-alch-dark">
       <main className="relative flex flex-col justify-center items-center text-center min-h-screen py-16 sm:py-24 md:py-32">
         {/* Dark background with pattern */}
         <div className="absolute inset-0 bg-transparent "></div>

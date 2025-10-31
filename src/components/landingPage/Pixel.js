@@ -207,7 +207,7 @@ import axiosInstance from "../../utils/axiosInstance"; // Using the custom axios
 
         return (
             <div 
-                className="h-auto lg:h-[780px] w-100% bg-alch-dark flex flex-col justify-between items-center pixelbg"   
+                className="h-auto lg:h-[780px] w-100% bg-alch-dark flex flex-col justify-between items-center"   
             >
                     <div className="flex justify-center items-center mt-[66px] lg:mt-[166px] w-[100%]">
                         <div className="flex flex-1 items-center">
