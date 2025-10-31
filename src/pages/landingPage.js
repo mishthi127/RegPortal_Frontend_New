@@ -289,8 +289,9 @@ const LandingPage = () => {
           </div>
         </div>
       
-
-      <HeroSection isAuthenticated={isAuthenticated} />
+      <div className='bg-alch-dark pixelbg'>
+        <HeroSection isAuthenticated={isAuthenticated} />
+      </div>
 
       <div className='landingbg'>
         <CompModules ref={compRef}/>
