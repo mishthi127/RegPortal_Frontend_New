@@ -24,7 +24,7 @@ const DecoratedInput = ({ id, label, type = 'text', ...props }) => {
       <div className="relative w-full h-8 group">
         {/* SVG frame — scales responsively but keeps its ratio */}
         <InputDeco
-          className="absolute top-0 left-0 w-full h-full text-rgba(23, 23, 23, 0.40) font-sans group-hover:text-#D67209 group-focus-within:text-dark-orange transition-colors duration-300 pointer-events-none"
+          className="absolute top-0 left-0 w-full h-full text-rgba(23, 23, 23, 0.40) font-sans group-hover:text-dark-orange group-focus-within:text-dark-orange font-sans transition-colors duration-300 pointer-events-none"
           preserveAspectRatio="none"
         />
 

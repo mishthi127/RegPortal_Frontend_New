@@ -39,7 +39,7 @@ const PersonalInfoPage = () => {
         navigate('/profile'); // Or to the main dashboard
       }
     } catch (err) {
-      setError(err.response?.data?.detail || 'Google sign-up failed. The email might already be in use.');
+      setError(err.response?.data?.detail || 'Google sign-up failed.');
     }
   };
 
