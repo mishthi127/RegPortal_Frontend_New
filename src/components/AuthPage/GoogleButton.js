@@ -38,7 +38,7 @@ const GoogleButton = ({ onSuccess, onError, size }) => {
 
       {/* ✅ Content */}
       <img src={GoogleLogo} alt="Google" className="w-4 h-4 relative z-10" />
-      <span className="relative z-10">Signup with Google</span>
+      <span className="relative z-10">Continue with Google</span>
     </button>
   );
 };

@@ -112,13 +112,13 @@ const PersonalInfoPage = () => {
       <div className='flex flex-col md:flex-row md:flex-wrap md:justify-between md:items-start md:gap-x-2 mb-2'>
         
         {/* Title: Order 1 on all screens */}
-        <h2 className="font-display text-2xl font-bold text-gray-800 flex-shrink md:order-1">
+        <h2 className="font-display text-2xl font-semibold text-gray-800 flex-shrink md:order-1">
           CREATE NEW ACCOUNT.
         </h2>
         
         {/* Sign in Link: Order 2 on mobile, Order 3 on desktop (bottom) */}
         <p className="text-brand-gray mt-1 text-xs md:order-3 md:w-full md:mt-0">
-          Already a member? <a href="/signin" className="text-red-600 font-semibold">Sign in</a>
+          Already a member? <a href="/signin" className="text-dark-orange font-semibold">Sign in</a>
         </p>
         
         {/* Google Button: Order 3 on mobile (bottom), Order 2 on desktop (top-right) */}

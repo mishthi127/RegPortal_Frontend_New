@@ -49,7 +49,7 @@ const SignInPage = () => {
       promoTitle="WELCOME BACK!"
       promoSubtitle="Sign in to continue your journey with us"
     >
-      <h2 className="font-display text-3xl font-bold text-gray-800">SIGN IN</h2>
+      <h2 className="font-display text-3xl font-semibold text-gray-800">SIGN IN</h2>
       <p className="text-brand-gray mt-2">
         If you don't have an account?{' '}
         <a href="/register" className="text-dark-orange font-semibold">
