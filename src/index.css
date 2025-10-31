@@ -134,3 +134,14 @@ body {
 }
 
 
+/* input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #f5f3e6 inset !important;
+  box-shadow: 0 0 0px 1000px #f5f3e6 inset !important;
+  -webkit-text-fill-color: #000 !important;
+  transition: background-color 9999s ease-in-out 0s;
+} */
+
+

@@ -265,15 +265,7 @@ if (alternate_phone && !phoneRegex.test(alternate_phone)) {
   if (!formData || !profileData) return null; 
 
   return (
-    <div
-      style={{
-          backgroundImage: `url(${backgroundPattern})`,
-          backgroundPosition: 'center',
-          backgroundSize: "100% auto",
-          backgroundRepeat: "repeat-y",
-        }}
-      className="min-h-screen bg-brand-dark p-4 sm:p-8"
-    >
+    <div className="pixelbg min-h-screen bg-brand-dark p-4 sm:p-8">
       <main className="w-full max-w-5xl mx-auto">
         <div className="mb-8 flex justify-between items-center">
           <div className="flex flex-row items-center justify-center gap-[20px]">

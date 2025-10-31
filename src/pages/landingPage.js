@@ -23,7 +23,6 @@ import hamburgerIcon from '../assets/hamburger-icon.svg';
 import backgroundPattern from '../assets/background-pattern.svg';
 import authorPlaceholder from '../assets/author-placeholder.png';
 import mbbgpattern from "../assets/mbbgpatternwh.svg"
-import { AddMembers } from '../components/AddMembers';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -149,118 +148,119 @@ const LandingPage = () => {
   return (
     <div>
       {loading && <Preloader />}
-    {/* laptop */}
-      <header className="sticky top-0 z-30 shadow-lg hidden lg:block border-b-[2px] border-alch-cream">
-        <div className="absolute inset-0 bg-alch-dark" style={headerBgStyle}></div>
-        <nav className="relative z-10 flex justify-between items-center py-4 px-4 sm:px-8">
-          <Link to="/">
-            <div>
-              <div className='flex flex-row justify-center items-center gap-[10px] h-[69px]'>
-                  <img className="lg:w-[37.99px] lg:h-[43.71px] w-[24px] h-[27.61px]" src={logo} alt="logo"/>
-                  <div className='text-alch-cream h-[32px] lg:h-[65.83px] flex flex-col justify-center'>
-                      <p className='font-modernoir font-bold lg:text-[37.99px] text-[18px] h-[42px] leading-none'>ALCHERINGA</p>
-                      <p className='font-sans h-[27px]  font-normal lg:text-[18.99px] text-[10px] leading-none self-end'>IIT GUWAHATI</p>
-                  </div>
-              </div>    
-            </div> 
-          </Link>
-          <div className="hidden lg:flex items-center">
-            <DecorativeButton to="#" variant="nav">
-              <div className="flex space-x-8 px-4 text-sm">
-                <Link to="/about" className="text-alch-cream hover:text-white whitespace-nowrap">About us</Link>
-                <Link to="/competitions" className="text-alch-cream hover:text-white whitespace-nowrap">Modules & Competitions</Link>
-              </div>
-            </DecorativeButton>
-          </div>
-          <div className="hidden lg:flex items-center space-x-6">
-            <Link className="text-alch-cream hover:text-white" onClick={scrollToFooter}>Contact us</Link>
-            {isAuthenticated ? (
-              <ProfileDropdown user={user} onLogout={handleLogout} onTabClick={handleTabClickFromDropdown}/>
-            ) : (
-              <DecoratedButton to="/login" variant="orange-sm">Login</DecoratedButton>
-            )}
-          </div>
-          {/* mobile */}
-          <div className="lg:hidden">
-            <button onClick={toggleMenu}><img src={hamburgerIcon} alt="Menu" className="h-12 w-12" /></button>
-          </div>
-        </nav>
-      </header>
-
-      {/* mobile */}
-      <header className="sticky top-0 z-30 shadow-lg lg:hidden border-b-[2px] border-alch-cream">
-        <div className="absolute inset-0 bg-alch-dark" style={mbheaderBgStyle}></div>
-        <nav className="relative z-10 flex justify-between items-center py-4 px-4 sm:px-8">
-          <Link to="/">
-            <div>
-              <div className='flex flex-row justify-center items-center gap-[10px] h-[69px]'>
-                  <img className="lg:w-[37.99px] lg:h-[43.71px] w-[24px] h-[27.61px]" src={logo} alt="logo"/>
-                  <div className='text-alch-cream h-[32px] lg:h-[65.83px] flex flex-col justify-center'>
-                      <p className='font-modernoir font-bold lg:text-[37.99px] text-[18px] h-[42px] leading-none'>ALCHERINGA</p>
-                      <p className='font-sans h-[27px]  font-normal lg:text-[18.99px] text-[10px] leading-none self-end'>IIT GUWAHATI</p>
-                  </div>
-              </div>    
-            </div> 
-          </Link>
-          <div className="hidden lg:flex items-center">
-            <DecorativeButton to="#" variant="nav">
-              <div className="flex space-x-8 px-4 text-sm">
-                <Link to="/about" className="text-alch-cream hover:text-white whitespace-nowrap">About us</Link>
-                <Link to="/competitions" className="text-alch-cream hover:text-white whitespace-nowrap">  Modules & Competitions</Link>
-              </div>
-            </DecorativeButton>
-          </div>
-          <div className="hidden lg:flex items-center space-x-6">
-            <Link to="/contact" className="text-alch-cream hover:text-white">Contact us</Link>
-            {isAuthenticated ? (
-              <ProfileDropdown user={user} onLogout={handleLogout} />
-            ) : (
-              <DecorativeButton to="/login" variant="orange-sm">Login</DecorativeButton>
-            )}
-          </div>
-          {/* mobile */}
-          <div className="lg:hidden">
-            <button onClick={toggleMenu}><img src={hamburgerIcon} alt="Menu" className="h-12 w-12" /></button>
-          </div>
-        </nav>
-      </header>
-
-      {/* Mobile Menu Overlay */}
-      <div className={`fixed top-0 left-0 h-full w-[100%] bg-black bg-opacity-95 z-40 transform transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className="flex justify-end p-8">
-          <button onClick={toggleMenu}>
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-          </button>
-        </div>
-        <div className="flex flex-col items-center justify-center h-3/4 space-y-8 text-2xl">
-          <Link to="/about"  onClick={toggleMenu} className="text-alch-cream hover:text-white">About us</Link>
-          <Link to="/competitions" onClick={toggleMenu} className="text-alch-cream hover:text-white">Modules & Competitions</Link>
-          <Link to="/contact" onClick={toggleMenu} className="text-alch-cream hover:text-white">Contact us</Link>
-
-          {/* Conditional links for mobile menu */}
-          {isAuthenticated ? (
-            <>
-              <Link to="/profile" state={{ tabIndex: 1 }} onClick={toggleMenu} className="text-alch-cream hover:text-white">My Profile</Link>
-              <Link to="/profile" state={{ tabIndex: 3 }} onClick={toggleMenu} className="text-alch-cream hover:text-white">Team Members</Link>
-              <button
-                onClick={() => {
-                  toggleMenu();
-                  handleLogout();
-                }}
-                className="text-alch-red hover:text-white font-bold text-2xl bg-transparent border-none"
-              >
-                Logout
-              </button>
-            </>
-          ) : (
-            <DecorativeButton to="/profile" variant="orange-sm" onClick={toggleMenu}>Login</DecorativeButton>
-          )}
-        </div>
-      </div>
 
       {/* Page Content */}
-      <div className='landingbg'>
+      <div className='pixelbg bg-alch-dark'>
+        {/* laptop */}
+        <header className="top-0 z-30 hidden lg:block">
+          <nav className="relative z-10 flex justify-between items-center py-4 px-4 sm:px-8">
+            <Link to="/">
+              <div>
+                <div className='flex flex-row justify-center items-center gap-[10px] h-[69px]'>
+                    <img className="lg:w-[37.99px] lg:h-[43.71px] w-[24px] h-[27.61px]" src={logo} alt="logo"/>
+                    <div className='text-alch-cream h-[32px] lg:h-[65.83px] flex flex-col justify-center'>
+                        <p className='font-display font-bold lg:text-[37.99px] text-[18px] h-[42px] leading-none'>ALCHERINGA</p>
+                        <p className='font-sans h-[27px]  font-normal lg:text-[18.99px] text-[10px] leading-none self-end'>IIT GUWAHATI</p>
+                    </div>
+                </div>    
+              </div> 
+            </Link>
+            <div className="hidden lg:flex items-center">
+              <DecorativeButton to="#" variant="nav">
+                <div className="flex space-x-8 px-4 text-sm">
+                  <Link to="/about" className="text-alch-cream hover:text-white whitespace-nowrap">About us</Link>
+                  <Link to="/competitions" className="text-alch-cream hover:text-white whitespace-nowrap">Modules & Competitions</Link>
+                </div>
+              </DecorativeButton>
+            </div>
+            <div className="hidden lg:flex items-center space-x-6">
+              <Link className="text-alch-cream hover:text-white" onClick={scrollToFooter}>Contact us</Link>
+              {isAuthenticated ? (
+                <ProfileDropdown user={user} onLogout={handleLogout} onTabClick={handleTabClickFromDropdown}/>
+              ) : (
+                <DecoratedButton to="/login" variant="orange-sm">Login</DecoratedButton>
+              )}
+            </div>
+            {/* mobile */}
+            <div className="lg:hidden">
+              <button onClick={toggleMenu}><img src={hamburgerIcon} alt="Menu" className="h-12 w-12" /></button>
+            </div>
+          </nav>
+        </header>
+
+        {/* mobile */}
+        <header className="top-0 z-30 lg:hidden">
+          <nav className="relative z-10 flex justify-between items-center py-4 px-4 sm:px-8">
+            <Link to="/">
+              <div>
+                <div className='flex flex-row justify-center items-center gap-[10px] h-[69px]'>
+                    <img className="lg:w-[37.99px] lg:h-[43.71px] w-[24px] h-[27.61px]" src={logo} alt="logo"/>
+                    <div className='text-alch-cream h-[32px] lg:h-[65.83px] flex flex-col justify-center'>
+                        <p className='font-display font-bold lg:text-[37.99px] text-[18px] h-[42px] leading-none'>ALCHERINGA</p>
+                        <p className='font-sans h-[27px]  font-normal lg:text-[18.99px] text-[10px] leading-none self-end'>IIT GUWAHATI</p>
+                    </div>
+                </div>    
+              </div> 
+            </Link>
+            <div className="hidden lg:flex items-center">
+              <DecorativeButton to="#" variant="nav">
+                <div className="flex space-x-8 px-4 text-sm">
+                  <Link to="/about" className="text-alch-cream hover:text-white whitespace-nowrap">About us</Link>
+                  <Link to="/competitions" className="text-alch-cream hover:text-white whitespace-nowrap">  Modules & Competitions</Link>
+                </div>
+              </DecorativeButton>
+            </div>
+            <div className="hidden lg:flex items-center space-x-6">
+              <Link to="/contact" className="text-alch-cream hover:text-white">Contact us</Link>
+              {isAuthenticated ? (
+                <ProfileDropdown user={user} onLogout={handleLogout} />
+              ) : (
+                <DecorativeButton to="/login" variant="orange-sm">Login</DecorativeButton>
+              )}
+            </div>
+            {/* mobile */}
+            <div className="lg:hidden">
+              <button onClick={toggleMenu}><img src={hamburgerIcon} alt="Menu" className="h-12 w-12" /></button>
+            </div>
+          </nav>
+        </header>
+
+        {/* Mobile Menu Overlay */}
+        <div className={`fixed top-0 left-0 h-full w-[100%] bg-black bg-opacity-95 z-40 transform transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          <div className="flex justify-end p-8">
+            <button onClick={toggleMenu}>
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+          </div>
+          <div className="flex flex-col items-center justify-center h-3/4 space-y-8 text-2xl">
+            <Link to="/about"  onClick={toggleMenu} className="text-alch-cream hover:text-white">About us</Link>
+            <Link to="/competitions" onClick={toggleMenu} className="text-alch-cream hover:text-white">Modules & Competitions</Link>
+            <Link to="/contact" onClick={toggleMenu} className="text-alch-cream hover:text-white">Contact us</Link>
+
+            {/* Conditional links for mobile menu */}
+            {isAuthenticated ? (
+              <>
+                <Link to="/profile" state={{ tabIndex: 1 }} onClick={toggleMenu} className="text-alch-cream hover:text-white">My Profile</Link>
+                <Link to="/profile" state={{ tabIndex: 3 }} onClick={toggleMenu} className="text-alch-cream hover:text-white">Team Members</Link>
+                <button
+                  onClick={() => {
+                    toggleMenu();
+                    handleLogout();
+                  }}
+                  className="text-alch-red hover:text-white font-bold text-2xl bg-transparent border-none"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <DecorativeButton to="/profile" variant="orange-sm" onClick={toggleMenu}>Login</DecorativeButton>
+            )}
+          </div>
+        </div>
+
         <HeroSection isAuthenticated={isAuthenticated} />
+      </div>
+      <div className='landingbg'>
         <CompModules ref={compRef}/>
       </div>
       <Pixel />
