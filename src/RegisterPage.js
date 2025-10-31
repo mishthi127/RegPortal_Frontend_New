@@ -11,6 +11,7 @@ import bgPattern from "./assets/background-pattern.svg";
 import RegisterIcon from "./assets/register-icon.svg";
 //import compForm from "./assets/comp-form.svg";
 import flower from "./assets/flower.svg";
+import DecoratedButton from "./components/AuthPage/DecoratedButton";
 
 const RegisterPage = () => {
   const { id } = useParams();
@@ -157,7 +158,7 @@ const RegisterPage = () => {
                   className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                 />
 
-                <h2 className="text-[#171717] text-center font-['TT Modernoir Trial Variable'] text-[2.625rem] font-bold leading-normal capitalize">
+                <h2 className="text-[#171717] text-center font-display text-[2.625rem] font-bold leading-normal capitalize">
                   {competition?.event_name || "Competition Name"}
                 </h2>
 
@@ -172,16 +173,16 @@ const RegisterPage = () => {
               </div>
 
               {competition?.event_module && (
-                <h3 className="text-[#171717] text-center font-['TT Modernoir Trial Variable'] text-[2rem] font-medium capitalize leading-normal mt-2">
+                <h3 className="text-[#171717] text-center font-display text-[2rem] font-medium capitalize leading-normal mt-2">
                   {competition?.event_module}
                 </h3>
               )}
 
               <div className="flex items-center gap-8 mt-3">
-                <span className="text-[#171717] text-center font-[Manrope] text-[1.25rem] font-medium capitalize">
+                <span className="text-[#171717] text-center font-sans text-[1.25rem] font-medium capitalize">
                   {competition?.solo_or_group || "N/A"}
                 </span>
-                <span className="text-[#171717] text-center font-[Manrope] text-[1.25rem] font-medium leading-normal capitalize">
+                <span className="text-[#171717] text-center font-sans text-[1.25rem] font-medium leading-normal capitalize">
                   {competition?.event_mode === "true" ? "Online" : "Offline"}
                 </span>
               </div>
@@ -217,12 +218,12 @@ const RegisterPage = () => {
                         {competition?.event_rules || "No rules provided."}
                       </div>
                       <div className="mt-5 flex justify-center">
-                        <button
+                        <DecoratedButton
                           className="bg-[#f79b2b] hover:bg-[#f58e1f] text-black font-semibold px-6 py-2 rounded-md transition-colors duration-200"
                           onClick={() => setGuidelinesOpen(false)}
                         >
                           Agree
-                        </button>
+                        </DecoratedButton>
                       </div>
                     </div>
                     <div className="bg-black w-[23rem] h-[1rem]" />
@@ -234,14 +235,14 @@ const RegisterPage = () => {
           </div>
 
           {/* Description */}
-          <p className="text-[#171717] font-[Manrope] text-[1rem] leading-[1.6875rem] capitalize mb-8">
+          <p className="text-[#171717] font-sans text-[1rem] leading-[1.6875rem] capitalize mb-8">
             {competition?.event_desc}
           </p>
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-5 max-w-3xl">
             <div>
-              <label className="text-[#171717] font-[Manrope] text-[1.125rem] font-normal">
+              <label className="text-[#171717] font-sans text-[1.125rem] font-normal">
                 Add Members (Min 1 - Max 10)
               </label>
 
@@ -300,7 +301,7 @@ const RegisterPage = () => {
             </div>
 
             <div>
-              <label className="text-[#171717] font-[Manrope] text-[1.125rem]">
+              <label className="text-[#171717] font-sans text-[1.125rem]">
                 Previous Performance
               </label>
               <input
@@ -314,7 +315,7 @@ const RegisterPage = () => {
             </div>
 
             <div>
-              <label className="text-[#171717] font-[Manrope] text-[1.125rem]">
+              <label className="text-[#171717] font-sans text-[1.125rem]">
                 Description
               </label>
               <textarea
@@ -327,7 +328,7 @@ const RegisterPage = () => {
               />
             </div>
 
-            <p className="text-black font-[Manrope] text-[1rem] leading-[1.4rem]">
+            <p className="text-black font-sans text-[1rem] leading-[1.4rem]">
               Note: Our team will review your entry. Once approved, you will be
               notified via email and SMS.
             </p>
@@ -338,7 +339,7 @@ const RegisterPage = () => {
 
             {/* Register Button */}
             <div className="mt-4 flex items-center justify-start">
-              <button
+              <DecoratedButton
                 type="submit"
                 disabled={loading}
                 className={`transition-all inline-flex items-center ${
@@ -347,12 +348,8 @@ const RegisterPage = () => {
                     : "hover:scale-105 cursor-pointer"
                 }`}
               >
-                <img
-                  src={RegisterIcon}
-                  alt="register"
-                  className="h-8 w-auto inline-block"
-                />
-              </button>
+               Register
+              </DecoratedButton>
             </div>
           </form>
         </div>
