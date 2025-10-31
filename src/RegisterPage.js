@@ -9,6 +9,8 @@ import headerImage from "./assets/group-dance.svg";
 import guidelinesFrame from "./assets/guidelines-frame.svg";
 import bgPattern from "./assets/background-pattern.svg";
 import RegisterIcon from "./assets/register-icon.svg";
+//import compForm from "./assets/comp-form.svg";
+import flower from "./assets/flower.svg";
 
 const RegisterPage = () => {
   const { id } = useParams();
@@ -34,27 +36,23 @@ const RegisterPage = () => {
     navigate("/profile", { state: { tabIndex } });
   };
 
+  // ✅ Fixed: Proper fetching of competition data
   useEffect(() => {
     const fetchCompetition = async () => {
       try {
-        // --- 2. USE AXIOSINSTANCE ---
         const res = await axiosInstance.get(`/api/competitions/${id}/`);
-        const data = res.data; // data is directly on res.data
-        // --- END OF CHANGES ---
-
-        console.log(data);
-        setCompetition(data);
+        setCompetition(res.data);
       } catch (err) {
-        console.error(err);
+        console.error("Error fetching competition:", err);
       }
     };
-
     fetchCompetition();
   }, [id]);
 
   const handleChange = (e) =>
     setFormData((p) => ({ ...p, [e.target.name]: e.target.value }));
 
+  // ✅ Fixed: Prevent duplicates, limit 10 members
   const handleAddMember = (member) => {
     if (!teamMembers.includes(member) && teamMembers.length < 10) {
       setTeamMembers((p) => [...p, member]);
@@ -77,15 +75,12 @@ const RegisterPage = () => {
       description: formData.description,
     };
 
-    try{
+    try {
       const response = await axiosInstance.post(
         "/api/register-competition/",
         finalData
       );
-      
-      // data is on response.data
-      const data = response.data; 
-      // --- END OF CHANGES --
+      const data = response.data;
 
       const stored =
         JSON.parse(localStorage.getItem("registeredCompetitions") || "[]") || [];
@@ -110,19 +105,17 @@ const RegisterPage = () => {
     }
   };
 
+  // ✅ Fixed: Properly fetching participant names
   useEffect(() => {
     const fetchMembers = async () => {
       try {
-        // --- 4. USE AXIOSINSTANCE ---
         const res = await axiosInstance.get("/Participantdata/Participant/");
         const data = res.data;
-        // --- END OF CHANGES ---
         setAvailableMembers(data.map((member) => member.name));
       } catch (err) {
         console.error("Error fetching members:", err);
       }
     };
-
     fetchMembers();
   }, []);
 
@@ -139,7 +132,6 @@ const RegisterPage = () => {
       {/* Top Bar */}
       <div className="flex items-center justify-between px-6 py-4 max-w-screen-xl mx-auto">
         <img src={logo} alt="logo" className="h-10 w-auto" />
-        <div className="flex items-center gap-6"></div>
       </div>
 
       {/* Header Image */}
@@ -158,70 +150,102 @@ const RegisterPage = () => {
         <div className="w-full px-6 py-8 md:px-10 lg:px-14 relative">
           <div className="flex items-start justify-between flex-wrap gap-4 mb-3">
             <div>
-              <h2 className="text-4xl font-bold flex items-center gap-2">
-                {competition?.event_name || "Loading..."}
-              </h2>
-              <div className="flex items-center gap-5 mt-1">
-                <span className="text-sm font-semibold text-[#1c1c1c]">
+              <div className="flex items-center justify-center gap-4 mt-8 w-full">
+                <img
+                  src={flower}
+                  alt="left flower"
+                  className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+                />
+
+                <h2 className="text-[#171717] text-center font-['TT Modernoir Trial Variable'] text-[2.625rem] font-bold leading-normal capitalize">
+                  {competition?.event_name || "Competition Name"}
+                </h2>
+
+                <img
+                  src={flower}
+                  alt="right flower"
+                  className="w-8 h-8 sm:w-10 sm:h-10 object-contain ml-[calc(0.3rem+0.1ch*var(--name-length,10))]"
+                  style={{
+                    "--name-length": competition?.event_name?.length || 10,
+                  }}
+                />
+              </div>
+
+              {competition?.event_module && (
+                <h3 className="text-[#171717] text-center font-['TT Modernoir Trial Variable'] text-[2rem] font-medium capitalize leading-normal mt-2">
+                  {competition?.event_module}
+                </h3>
+              )}
+
+              <div className="flex items-center gap-8 mt-3">
+                <span className="text-[#171717] text-center font-[Manrope] text-[1.25rem] font-medium capitalize">
                   {competition?.solo_or_group || "N/A"}
                 </span>
-                <span className="text-sm font-semibold text-[#1c1c1c]">
+                <span className="text-[#171717] text-center font-[Manrope] text-[1.25rem] font-medium leading-normal capitalize">
                   {competition?.event_mode === "true" ? "Online" : "Offline"}
                 </span>
               </div>
             </div>
 
-            {/* Guidelines Button */}
+            {/* ✅ Guidelines Popup Fixed */}
             <div className="relative">
               <button
                 type="button"
                 onClick={() => setGuidelinesOpen(!guidelinesOpen)}
-                className="w-28 h-10 bg-transparent"
+                className="w-32 h-12 bg-transparent"
               >
                 <img
                   src={guidelinesFrame}
                   alt="guidelines"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain hover:scale-105 transition-transform duration-200"
                 />
               </button>
 
               {guidelinesOpen && (
-                <div
-                  className="absolute right-0 top-full mt-2 bg-[#111] text-white w-72 p-4 text-sm z-40 shadow-xl border border-[#333]"
-                  style={{
-                    clipPath:
-                      "polygon(12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px), 0 12px)",
-                  }}
-                >
-                  <h3 className="text-base font-semibold mb-2 leading-snug">
-                    {competition?.event_rules || "No rules provided."}
-                  </h3>
-                  <div className="mt-4 flex justify-end">
-                    <button
-                      className="bg-[#f79b2b] hover:bg-[#f58e1f] text-black px-4 py-1.5 rounded"
-                      onClick={() => setGuidelinesOpen(false)}
+                <div className="absolute right-0 top-full mt-3 z-40">
+                  <div className="flex flex-col items-center">
+                    <div className="bg-black w-[21rem] h-[1rem]" />
+                    <div className="bg-black w-[23rem] h-[1rem]" />
+                    <div
+                      className="bg-black text-white w-[25.375rem] p-5 shadow-[0_0_25px_rgba(247,155,43,0.45)] overflow-y-auto"
+                      style={{ maxHeight: "70vh" }}
                     >
-                      Agree
-                    </button>
+                      <p className="text-center text-lg font-semibold text-[#f79b2b] mb-3">
+                        Competition Guidelines
+                      </p>
+                      <div className="text-[#e5e5e5] text-sm whitespace-pre-line leading-relaxed overflow-y-auto max-h-[55vh] scrollbar-thin scrollbar-thumb-[#f79b2b]/70 scrollbar-track-[#1a1a1a]">
+                        {competition?.event_rules || "No rules provided."}
+                      </div>
+                      <div className="mt-5 flex justify-center">
+                        <button
+                          className="bg-[#f79b2b] hover:bg-[#f58e1f] text-black font-semibold px-6 py-2 rounded-md transition-colors duration-200"
+                          onClick={() => setGuidelinesOpen(false)}
+                        >
+                          Agree
+                        </button>
+                      </div>
+                    </div>
+                    <div className="bg-black w-[23rem] h-[1rem]" />
+                    <div className="bg-black w-[21rem] h-[1rem]" />
                   </div>
                 </div>
               )}
             </div>
           </div>
 
-          {/* Short Description */}
-          <p className="text-sm font-sans text-black-700 mb-6 max-w-3xl">
+          {/* Description */}
+          <p className="text-[#171717] font-[Manrope] text-[1rem] leading-[1.6875rem] capitalize mb-8">
             {competition?.event_desc}
           </p>
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-5 max-w-3xl">
             <div>
-              <label className="block text-sm font-semibold text-gray-800 mb-2">
+              <label className="text-[#171717] font-[Manrope] text-[1.125rem] font-normal">
                 Add Members (Min 1 - Max 10)
               </label>
 
-              <div className="flex flex-wrap gap-2 mb-2">
+              <div className="flex flex-wrap gap-2 mb-3">
                 {teamMembers.length === 0 && (
                   <span className="text-sm text-gray-500">
                     No members added yet
@@ -244,6 +268,7 @@ const RegisterPage = () => {
                 ))}
               </div>
 
+              {/* ✅ Fixed dropdown key and mapping */}
               <div className="relative inline-block">
                 <button
                   type="button"
@@ -262,7 +287,7 @@ const RegisterPage = () => {
                     )}
                     {availableMembers.map((member) => (
                       <div
-                        key={member.id}
+                        key={member}
                         onClick={() => handleAddMember(member)}
                         className="px-3 py-2 hover:bg-[#fffaef] cursor-pointer text-sm"
                       >
@@ -275,7 +300,7 @@ const RegisterPage = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-gray-800 mb-1">
+              <label className="text-[#171717] font-[Manrope] text-[1.125rem]">
                 Previous Performance
               </label>
               <input
@@ -289,7 +314,7 @@ const RegisterPage = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-gray-800 mb-1">
+              <label className="text-[#171717] font-[Manrope] text-[1.125rem]">
                 Description
               </label>
               <textarea
@@ -302,7 +327,7 @@ const RegisterPage = () => {
               />
             </div>
 
-            <p className="text-xs text-gray-500">
+            <p className="text-black font-[Manrope] text-[1rem] leading-[1.4rem]">
               Note: Our team will review your entry. Once approved, you will be
               notified via email and SMS.
             </p>
@@ -311,19 +336,24 @@ const RegisterPage = () => {
               <p className="text-red-500 text-sm font-medium">{error}</p>
             )}
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="mt-4 flex items-center justify-center"
-            >
-              <img
-                src={RegisterIcon}
-                alt="register"
-                className={`h-8 w-auto inline mr-2 ${
-                  loading ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
+            {/* Register Button */}
+            <div className="mt-4 flex items-center justify-start">
+              <button
+                type="submit"
+                disabled={loading}
+                className={`transition-all inline-flex items-center ${
+                  loading
+                    ? "opacity-60 cursor-not-allowed"
+                    : "hover:scale-105 cursor-pointer"
                 }`}
-              />
-            </button>
+              >
+                <img
+                  src={RegisterIcon}
+                  alt="register"
+                  className="h-8 w-auto inline-block"
+                />
+              </button>
+            </div>
           </form>
         </div>
       </div>
