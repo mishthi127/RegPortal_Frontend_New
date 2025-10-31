@@ -16,7 +16,7 @@ import axiosInstance from "../../utils/axiosInstance"; // Using the custom axios
         const [animationdone, setAnimationdone] = useState(false);
         const [animationstart, setAnimationstart] = useState(false);
         const [yourturn, setYourturn] = useState(false);
-        const [animation1, setAnimation1] = useState(false);
+        const [animation1, setAnimation1] = useState(true);
 
         const animation2 = [{row: 7, col: 18},{row: 9, col: 18},{row: 8, col: 17},{row: 8, col: 19}];
         const animation3 = [];
@@ -168,7 +168,7 @@ import axiosInstance from "../../utils/axiosInstance"; // Using the custom axios
         async function animation(){
             setHighlight([]);
             setAnimation1(true);
-            await wait(1500);
+            await wait(500);
             setAnimationstart(true);
             setAnimation1(false);
             setHighlight(animation2);
@@ -187,15 +187,15 @@ import axiosInstance from "../../utils/axiosInstance"; // Using the custom axios
             window.location.href = '/login';
         } else {
             if (highlight.length === 0) {
-                alert("click on boxexs");
+                alert("Play the game before submitting");
             } else {
                 try {
                     const res = await axiosInstance.post("/auth/complete-profile/", { // Using updated axios instance
                         pixel_highlight: highlight
                     });
-                    console.log("submited", highlight);
+                    console.log("Your response has been submitted", highlight);
                     console.log("Updated profile from backend:", res.data);
-                    alert("submited");
+                    alert("Your response has been submitted");
                     setHighlight([]);
                     }catch(err){
                         console.error("save error:", err);

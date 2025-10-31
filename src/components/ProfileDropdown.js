@@ -52,24 +52,24 @@ const ProfileDropdown = ({ user, onLogout, onTabClick }) => {
           <button
             onClick={() => {
               setIsOpen(false);
-              onTabClick(3); // 3 = Team Members
-            }}
-            className="block w-full text-left px-4 py-2 text-sm text-alch-cream hover:bg-alch-red"
-          >
-            Team Members
-{/*         
-          <Link to="/my-competitions" className="block px-4 py-2 text-sm text-alch-cream hover:bg-alch-red"> </Link> */}
-          </button>
-
-          <button
-            onClick={() => {
-              setIsOpen(false);
               onTabClick(2); // 2 = My Registrations
             }}
             className="block w-full text-left px-4 py-2 text-sm text-alch-cream hover:bg-alch-red"
           >
             My Registrations
           </button>
+
+          <button
+            onClick={() => {
+              setIsOpen(false);
+              onTabClick(3); // 3 = Team Members
+            }}
+            className="block w-full text-left px-4 py-2 text-sm text-alch-cream hover:bg-alch-red"
+          >
+            Team Members
+          </button>
+
+          
 
           <div className="border-t border-alch-cream/20 my-1"></div>
 

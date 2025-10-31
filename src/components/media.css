@@ -1,5 +1,5 @@
 .fotterbg {
-  background-image: url("../assets/background-pattern.svg"); /* PC background */
+  background-image: url("../assets/blackbgpattern.svg");/* PC background */
   background-repeat: repeat-y;
   background-size: 100% auto;
   background-position: 0 -190px;
@@ -33,7 +33,7 @@
 }
 
 .pixelbg{
-  background-image: url("../assets/background-pattern.svg"); /* PC background */
+  background-image: url("../assets/blackbgpattern.svg");
   background-repeat: repeat-y;
   background-size: 100% auto;
   background-position: center;
@@ -64,6 +64,36 @@
     background-size: 100% auto;
     background-position: center;
   }
+}
+
+.input-bg {
+  background-image: url('../assets/inputbg.svg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 575px; /* base width */
+}
+
+.input-bg:focus {
+  background-image: url('../assets/inputbgfocus.svg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 575px;
+}
+
+.mbinput-bg {
+  background-image: url('../assets/mbaddforminpbg.svg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.mbinput-bg:focus {
+  background-image: url('../assets/mbaddforminpbgfocus.svg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 

@@ -23,7 +23,7 @@ export const FAQS = forwardRef((props, ref) => {
             </div>
             <div className="flex items-center justify-center">
                 <div 
-                    className="bg-transparent flex flex-col flex-1 items-center  mt-[80px] lg:gap-[48px] gap-[15px]"
+                    className="bg-transparent flex flex-col flex-1 items-center  mt-[80px]  gap-[15px]"
                 >   
                     <div className="w-[970px] hidden lg:block">
                         <ClickSpark sparkColor='#fff' sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>

@@ -13,7 +13,9 @@ import addbutton from "../assets/addbutton.svg";
 import close from "../assets/close.svg";
 import addmembtn from "../assets/addmembtn.png";
 import inputbg from "../assets/inputbg.svg";
+import inputbgfocus from "../assets/inputbgfocus.svg"
 import discard from "../assets/discard.svg";
+import addmem from "../assets/addmembutton.svg"
 import mbaddmembtn from "../assets/mbaddmembtn.svg";
 import mbserach from "../assets/mbsearch.svg";
 import mbaddforminpbg from "../assets/mbaddforminpbg.svg";
@@ -315,13 +317,6 @@ alert(`Failed to save members: ${errorMsg}`);
 
     const namesToDisplay = text ? filteredNames : names; //which array to display
 
-    const headerBgStyle = {
-        backgroundImage: `url(${background})`,
-        backgroundPosition: 'center', // centers the image
-        backgroundSize: 'cover',      // makes it cover the div
-        backgroundRepeat: 'no-repeat',
-    };
-
     const searchBgStyle = {
         backgroundImage: `url(${searchbar})`,
         backgroundPosition: 'center', // centers the image
@@ -371,19 +366,13 @@ alert(`Failed to save members: ${errorMsg}`);
         backgroundRepeat: 'no-repeat' // prevents tiling
     };
 
-    const inputbgstyle = {
-        backgroundImage: `url(${inputbg})`,
+    const addmembtnBgStyle = {
+        backgroundImage: `url(${addmem})`,
         backgroundPosition: 'center', // centers the image
         backgroundSize: 'cover',      // makes it cover the div
         backgroundRepeat: 'no-repeat' // prevents tiling
-    }
+    };
 
-    const mbinputbgstyle = {
-        backgroundImage: `url(${mbaddforminpbg})`,
-        backgroundPosition: 'center', // centers the image
-        backgroundSize: 'cover',      // makes it cover the div
-        backgroundRepeat: 'no-repeat' // prevents tiling
-    }
 
     const noscroolbar = {
         /* Hide scrollbar for Firefox + Edge */
@@ -446,8 +435,8 @@ alert(`Failed to save members: ${errorMsg}`);
                                                     type="text"
                                                     value={item.name}
                                                     onChange={(e) => handleChange(item.id, item.tempId, "name", e.target.value)}
-                                                    style={inputbgstyle}
-                                                    className='lg:w-[560px] w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0'
+                                                     
+                                                    className=' input-bg w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0'
                                                 />
                                             </li>
                                             <li className='mt-[24px]'>
@@ -456,8 +445,8 @@ alert(`Failed to save members: ${errorMsg}`);
                                                     type="email"
                                                     value={item.email}
                                                     onChange={(e) => handleChange(item.id, item.tempId, "email", e.target.value)}
-                                                    style={inputbgstyle}
-                                                    className='lg:w-[560px] w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0'
+                                                     
+                                                    className=' input-bg w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0'
                                                 />
                                             </li>
                                             <li className='mt-[24px]'>
@@ -465,8 +454,8 @@ alert(`Failed to save members: ${errorMsg}`);
                                                 <select
                                                     value={item.gender}
                                                     onChange={(e) => handleChange(item.id, item.tempId, "gender", e.target.value)}
-                                                    style={inputbgstyle}
-                                                    className='lg:w-[560px] w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0 appearance-none'
+                                                     
+                                                    className=' input-bg w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0 appearance-none'
                                                 >
                                                     <option value="Male">Male</option>
                                                     <option value="Female">Female</option>
@@ -479,8 +468,8 @@ alert(`Failed to save members: ${errorMsg}`);
                                                     type="text"
                                                     value={item.phone}
                                                     onChange={(e) => handleChange(item.id, item.tempId, "phone", e.target.value)}
-                                                    style={inputbgstyle}
-                                                    className='lg:w-[560px] w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0 '
+                                                     
+                                                    className=' input-bg w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0 '
                                                 />
                                             </li>
                                             <li className='mt-[24px]'>
@@ -489,8 +478,8 @@ alert(`Failed to save members: ${errorMsg}`);
                                                     type="text"
                                                     value={item.collegename}
                                                     onChange={(e) => handleChange(item.id, item.tempId, "collegename", e.target.value)}
-                                                    style={inputbgstyle}
-                                                    className='lg:w-[560px] w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0'
+                                                     
+                                                    className=' input-bg w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0'
                                                 />
                                             </li>
                                             <li className='mt-[24px]'>
@@ -499,8 +488,8 @@ alert(`Failed to save members: ${errorMsg}`);
                                                     type="text"
                                                     value={item.city}
                                                     onChange={(e) => handleChange(item.id, item.tempId, "city", e.target.value)}
-                                                    style={inputbgstyle}
-                                                    className='lg:w-[560px] w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0'
+                                                     
+                                                    className=' input-bg w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0'
                                                 />
                                             </li>
                                             <li className='mt-[24px]'>
@@ -508,8 +497,8 @@ alert(`Failed to save members: ${errorMsg}`);
                                                 <select
                                                     value={item.state}
                                                     onChange={(e) => handleChange(item.id, item.tempId, "state", e.target.value)}
-                                                    style={inputbgstyle}
-                                                    className='lg:w-[560px] w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px]  lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0 appearance-none'
+                                                     
+                                                    className=' input-bg w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px]  lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0 appearance-none'
                                                 >
                                                     <option value="">Select a State</option>
                                                     {STATES.map((st) => (
@@ -531,15 +520,9 @@ alert(`Failed to save members: ${errorMsg}`);
                         <div className='lg:h-[27px] h-[15px] lg:w-[800px] w-[319px] flex flex-col justify-center items-center bg-alch-cream ' onClick={(e) => e.stopPropagation()}>
                         </div>
 
-                        <div className='flex lg:justify-between justify-center items-center lg:w-[800px] w-[319px] bg-alch-cream px-6 lg:px-10'>
-                            <DecoratedButton
-                                onClick={addDiv}
-                                className='font-sans text-[16px] font-bold text-alch-dark'
-                            >
-                                Add Form
-                            </DecoratedButton>
+                        <div className='flex lg:w-[800px] w-[319px] justify-center bg-alch-cream px-6 lg:px-10'>
+                            <div className='flex flex-row ml-auto mr-[10px] gap-[31.73px] lg:mr-[30px]'>
 
-                            <div className='flex flex-row gap-[31.73px] lg:mr-[30px]'>
                                 <button
                                     className='w-[109.27px] h-[34.62px]'
                                     onClick={makediscard}
@@ -548,11 +531,19 @@ alert(`Failed to save members: ${errorMsg}`);
                                     <p className='font-sans text-[16px] font-bold text-alch-red'>Discard</p>
                                 </button>
 
+                                <button
+                                    className='w-[132px] h-[34.62px]'
+                                    onClick={addDiv}
+                                    style={addmembtnBgStyle}
+                                >
+                                    <p className='font-sans text-[16px] font-bold text-alch-dark'>Add Member</p>
+                                </button>
+
                                 <DecoratedButton
                                     onClick={submit}
                                     className='font-sans text-[16px] font-bold text-alch-dark'
                                 >
-                                    Add Member
+                                    Done
                                 </DecoratedButton>
                             </div>
                         </div>
@@ -607,8 +598,8 @@ alert(`Failed to save members: ${errorMsg}`);
                                                     type="text"
                                                     value={item.name}
                                                     onChange={(e) => handleChange(item.id, item.tempId, "name", e.target.value)}
-                                                    style={mbinputbgstyle}
-                                                    className='w-[261px] h-[31px] mt-[11px] outline-none px-[15px] text-[12px] bg-transparent focus:outline-none focus:ring-0'
+                                                     
+                                                    className='mbinput-bg w-[261px] h-[31px] mt-[11px] outline-none px-[15px] text-[12px] bg-transparent focus:outline-none focus:ring-0'
                                                 />
                                             </li>
                                             <li className='mt-[24px]'>
@@ -617,8 +608,8 @@ alert(`Failed to save members: ${errorMsg}`);
                                                     type="email"
                                                     value={item.email}
                                                     onChange={(e) => handleChange(item.id, item.tempId, "email", e.target.value)}
-                                                    style={mbinputbgstyle}
-                                                    className='lg:w-[560px] w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0'
+                                                     
+                                                    className='mbinput-bg w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0'
                                                 />
                                             </li>
                                             <li className='mt-[24px]'>
@@ -626,8 +617,8 @@ alert(`Failed to save members: ${errorMsg}`);
                                                 <select
                                                     value={item.gender}
                                                     onChange={(e) => handleChange(item.id, item.tempId, "gender", e.target.value)}
-                                                    style={mbinputbgstyle}
-                                                    className='lg:w-[560px] w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0 appearance-none'
+                                                     
+                                                    className='mbinput-bg lg:w-[560px] w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0 appearance-none'
                                                 >
                                                     <option value="Male">Male</option>
                                                     <option value="Female">Female</option>
@@ -640,8 +631,8 @@ alert(`Failed to save members: ${errorMsg}`);
                                                     type="text"
                                                     value={item.phone}
                                                     onChange={(e) => handleChange(item.id, item.tempId, "phone", e.target.value)}
-                                                    style={mbinputbgstyle}
-                                                    className='lg:w-[560px] w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0 '
+                                                     
+                                                    className='mbinput-bg lg:w-[560px] w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0 '
                                                 />
                                             </li>
                                             <li className='mt-[24px]'>
@@ -650,8 +641,8 @@ alert(`Failed to save members: ${errorMsg}`);
                                                     type="text"
                                                     value={item.collegename}
                                                     onChange={(e) => handleChange(item.id, item.tempId, "collegename", e.target.value)}
-                                                    style={mbinputbgstyle}
-                                                    className='lg:w-[560px] w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0'
+                                                     
+                                                    className='mbinput-bg w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0'
                                                 />
                                             </li>
                                             <li className='mt-[24px]'>
@@ -660,8 +651,8 @@ alert(`Failed to save members: ${errorMsg}`);
                                                     type="text"
                                                     value={item.city}
                                                     onChange={(e) => handleChange(item.id, item.tempId, "city", e.target.value)}
-                                                    style={mbinputbgstyle}
-                                                    className='lg:w-[560px] w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0'
+                                                     
+                                                    className='mbinput-bg w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px] lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0'
                                                 />
                                             </li>
                                             <li className='mt-[24px]'>
@@ -669,8 +660,8 @@ alert(`Failed to save members: ${errorMsg}`);
                                                 <select
                                                     value={item.state}
                                                     onChange={(e) => handleChange(item.id, item.tempId, "state", e.target.value)}
-                                                    style={mbinputbgstyle}
-                                                    className='lg:w-[560px] w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px]  lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0 appearance-none'
+                                                     
+                                                    className='mbinput-bg lg:w-[560px] w-[261px] lg:h-[45px] h-[31px] mt-[11px] outline-none px-[15px]  lg:text-[14px] text-[12px] bg-transparent focus:outline-none focus:ring-0 appearance-none'
                                                 >
                                                     <option value="">Select a State</option>
                                                     {STATES.map((st) => (
@@ -696,7 +687,12 @@ alert(`Failed to save members: ${errorMsg}`);
                             <button className='hidden lg:block h-[35px] w-[157px] ml-[31.73px]' onClick={addDiv} style={addmemBgStyle}><p className='font-sans text-[16px] font-bold text-alch-dark'>Add Form</p></button>
                             <div className='flex flex-row gap-[31.73px] lg:mr-[30px]'>
                                 <button className='w-[109.27px] h-[34.62px]' onClick={makediscard} style={discardBgStyle}><p className='font-sans text-[16px] font-bold text-alch-red'>Discard</p></button>
-                                <button className='w-[157px] h-[35px] ' onClick={submit} style={addmemBgStyle}><p className='font-sans text-[16px] font-bold text-alch-dark'>Add Member</p></button>
+                                <DecoratedButton
+                                    onClick={submit}
+                                    className='font-sans text-[16px] font-bold text-alch-dark'
+                                >
+                                    Done
+                                </DecoratedButton>
                             </div>
                         </div>
 
@@ -713,11 +709,11 @@ alert(`Failed to save members: ${errorMsg}`);
                 className='lg:h-full lg:w-full h-auto w-[371px] flex items-center lg:justify-center flex-col'
                 // style={headerBgStyle}
             >
-                    <div className=' w-[100%] flex items-center justify-center'>
+                    <div className=' w-[100%] flex items-center'>
                         {/* laptop search */}
                         <div
                             style={searchBgStyle}
-                            className='lg:h-[43px] lg:w-[526px] w-[336px] h-[56px] hidden lg:flex  items-center mb-[32px] mt-[56px] lg:mt-[0]'
+                            className='lg:h-[38px] lg:w-[450px] hidden lg:flex items-center mb-[32px] mt-[56px] lg:mt-[0] ml-[8px]'
                         >
                             <button><img src={searchbutton} alt='search' className='ml-[16px]'/></button>
                             <input 
@@ -727,6 +723,8 @@ alert(`Failed to save members: ${errorMsg}`);
                                 onChange={(e) => setText(e.target.value)}
                             ></input>
                         </div>
+                    </div>
+                    <div className=' w-[100%] flex items-center justify-center'>
                         {/* mobile search */}
                         <div
                             style={{
@@ -735,7 +733,7 @@ alert(`Failed to save members: ${errorMsg}`);
                                 backgroundSize: 'cover',      // makes it cover the div
                                 backgroundRepeat: 'no-repeat'
                             }}
-                            className='w-[95%] h-[35px] max-sm:w-[270px] max-sm:h-[40px] lg:hidden flex items-center mb-[32px] mt-[30px] lg:mt-[0]'
+                            className='w-[330px] h-[32px] max-sm:w-[254.8px] max-sm:h-[26px] lg:hidden flex items-center mb-[32px] mt-[30px] lg:mt-[0]'
                         >
                             <button><img src={searchbutton} alt='search' className='ml-[16px]'/></button>
                             <input 
@@ -746,14 +744,13 @@ alert(`Failed to save members: ${errorMsg}`);
                             ></input>
                         </div>
                     </div>
-                    <div className='lg:w-full w-100% h-auto flex justify-center items-start flex-col lg:flex-row gap-[16px] lg:gap-[27px] '>
+                    <div className='lg:w-full w-100% h-auto flex justify-center items-start flex-col lg:flex-row gap-[16px] lg:gap-[27px]'>
                         <div className=' h-100% w-100% flex flex-col gap-[16px]'>
                             {/* laptop leader */}
                             {!text && (
                                 <div
                                     className='lg:w-[450px] lg:h-[49.5px] w-[336px] h-[56px] hidden lg:flex justify-center items-center cursor-pointer'
                                     style={namesBgStyle}
-                                    onClick={() => navigate('/profile')}
                                 >   
                                     <div className='lg:w-[95%] lg:h-[38px] w-[315.55px] h-[38px] flex justify-between items-center'>
                                         <div className='flex justify-between items-center gap-[17px]'>
@@ -778,7 +775,7 @@ alert(`Failed to save members: ${errorMsg}`);
                                     style={mbnamesBgStyle}
                                     onClick={() => navigate('/profile')}
                                 >   
-                                    <div className='w-[300px] h-[38px] flex justify-between items-center'>
+                                    <div className='w-[300px] h-[38px] max-sm:w-[240px] max-sm:h-[44px] flex justify-between items-center'>
                                         <div className='flex justify-between items-center gap-[17px]'>
                                             <img src={profile?.profilePic || profilepic} alt='profile' className='w-[32.11px] h-[32.11px]'/>
                                             <div className='h-[30px] flex flex-col justify-between'>
@@ -799,7 +796,7 @@ alert(`Failed to save members: ${errorMsg}`);
 
                         {namesToDisplay &&
                             namesToDisplay
-                                .filter((_, index) => index % 2 === 0)
+                                .filter((_, index) => index % 2 === 1)
                                 .map((item) => (
                                     <div className='lg:w-[450px] lg:h-[49.5px] w-[336px] h-[56px] hidden lg:flex justify-center items-center' style={namesBgStyle} key={item.id}>
                                         <div className='lg:w-[95%] lg:h-[38px] w-[315.55px] h-[38px] flex justify-between items-center mx-[20px]'>
@@ -855,9 +852,10 @@ alert(`Failed to save members: ${errorMsg}`);
 
                     <div className=' h-100% w-100% hidden lg:flex flex-col lg:gap-[16px]'>
                         {/* <div className='w-[526px] h-[58.08px]'></div> */}
+                        {namesToDisplay.length === 0 && <div className='lg:w-[450px] lg:h-[49.5px] w-[336px] h-[56px]'></div>}
                         {namesToDisplay &&
                             namesToDisplay
-                                .filter((_, index) => index % 2 === 1)
+                                .filter((_, index) => index % 2 === 0)
                                 .map((item) => (
                                     <div className='lg:w-[450px] lg:h-[49.5px] w-[336px] h-[56px] flex justify-center items-center' style={namesBgStyle} key={item.id}>
                                         <div className='lg:w-[95%] lg:h-[38px] w-[315.55px] h-[38px] flex justify-between items-center mx-[20px]'>

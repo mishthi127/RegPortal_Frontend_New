@@ -65,7 +65,7 @@ useEffect(() => {
     <div className="text-alch-cream overflow-hidden">
       <main className="relative flex flex-col justify-center items-center text-center min-h-screen py-16 sm:py-24 md:py-32">
         {/* Dark background with pattern */}
-        <div className="absolute inset-0 bg-alch-dark pixelbg"></div>
+        <div className="absolute inset-0 bg-transparent "></div>
 
       {/*  Flowers 
         <div className="absolute inset-0 w-full h-full pointer-events-none">
@@ -135,8 +135,7 @@ useEffect(() => {
 </motion.div>
 
       </main>
-
-
+      
       <div className="bg-black">
         <img src={middle_line} alt="Decorative Footer Border" className="w-full transform scale-y-[-1]"/>
       </div>
