@@ -1,3 +1,4 @@
+
 // src/pages/SignInPage.js
 import React, { useState } from 'react';
 import axios from 'axios';
@@ -9,7 +10,7 @@ import DecoratedPasswordInput from '../components/AuthPage/DecoratedPasswordInpu
 import DecoratedButton from '../components/AuthPage/DecoratedButton.js';
 import { ReactComponent as NewInputDeco } from '../assets/new-input-deco.svg';
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = process.env.BACKEND_URL;
 
 const SignInPage = () => {
   const [email, setEmail] = useState('');
