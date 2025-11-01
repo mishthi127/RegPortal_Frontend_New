@@ -82,12 +82,43 @@ export function Footer({ scrollToFAQ, scrollToTestimonials, scrollToComp ,ref })
                         </div>
                     </div>
 
-                    <div className='hidden lg:block mt-[105px] w-auto h-[195px] overflow-hidden mx-auto'>
-                        <img className="mx-auto w-[1433px] h-[195px] " src="/footer1.png" alt="footer1"/>
-                    </div>
-                    <div className='mt-[80px] block lg:hidden h-[85px]  overflow-hidden mx-[15px]'>
-                        <img className="mx-auto h-[85px] " src="/mbfooter1.svg" alt="footer1"/>
-                    </div>
+                    {/* ===== START: NEW FLOWER ANIMATION ===== */}
+
+{/* This main container hides the scrolling overflow */}
+<div className='w-full overflow-hidden'>
+
+    {/* --- DESKTOP ANIMATION --- */}
+    {/* Uses your new desktop-row-1.png and desktop-row-2.png */}
+    <div className='hidden lg:block mt-[105px] w-full mx-auto'>
+        {/* Row 1: Scrolls RIGHT */}
+        <div className="w-[200%] flex animate-scroll-right">
+            {/* Two copies of the image for a seamless loop */}
+            <img className="w-[50%] h-[97.5px] object-cover" src="/desktop-row-1.png" alt="footer row 1"/>
+            <img className="w-[50%] h-[97.5px] object-cover" src="/desktop-row-1.png" alt="footer row 1"/>
+        </div>
+        {/* Row 2: Scrolls LEFT */}
+        <div className="w-[200%] flex animate-scroll-left">
+            <img className="w-[50%] h-[97.5px] object-cover" src="/desktop-row-2.png" alt="footer row 2"/>
+            <img className="w-[50%] h-[97.5px] object-cover" src="/desktop-row-2.png" alt="footer row 2"/>
+        </div>
+    </div>
+
+    {/* --- MOBILE ANIMATION --- */}
+    {/* Uses your new mobile-row-1.png and mobile-row-2.png */}
+    <div className='block lg:hidden mt-[80px] w-full'>
+        {/* Row 1: Scrolls RIGHT */}
+        <div className="w-[200%] flex animate-scroll-right">
+            <img className="w-[50%] h-[42.5px] object-cover" src="/mobile-row-1.png" alt="footer row 1"/>
+            <img className="w-[50%] h-[42.5px] object-cover" src="/mobile-row-1.png" alt="footer row 1"/>
+        </div>
+        {/* Row 2: Scrolls LEFT */}
+        <div className="w-[200%] flex animate-scroll-left">
+            <img className="w-[50%] h-[42.5px] object-cover" src="/mobile-row-2.png" alt="footer row 2"/>
+            <img className="w-[50%] h-[42.5px] object-cover" src="/mobile-row-2.png" alt="footer row 2"/>
+        </div>
+    </div>
+</div>
+{/* ===== END: NEW FLOWER ANIMATION ===== */}
 
                     <div className="text-alch-cream text-[10px] lg:text-sm font-normal tracking-[0.02em] leading-[140%] h-[40px] lg:w-[1293px] w-full lg:ml-[79px] mt-[60px] flex justify-center lg:justify-between">
                         <a href="https://alcheringa.co.in/" target="_blank" rel="noopener noreferrer" className="w-full lg:w-[257px] text-center lg:text-left text-alch-cream no-underline">

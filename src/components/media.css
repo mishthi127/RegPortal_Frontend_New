@@ -107,3 +107,33 @@
 }
 
 
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Moves the container left by exactly one image-width */
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    /* Starts at the 'end' position */
+    transform: translateX(-50%);
+  }
+  100% {
+    /* Animates back to the 'start' position */
+    transform: translateX(0);
+  }
+}
+
+/* These are the classes you'll use in your React code */
+.animate-scroll-left {
+  animation: scroll-left 20s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 20s linear infinite;
+}
+
