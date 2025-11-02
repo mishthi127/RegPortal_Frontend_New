@@ -38,7 +38,7 @@ function ModuleDropdown({ modules, selectedModule, setSelectedModule }) {
         }}
       >
         <div
-          className="lg:w-[80%] w-[90%] lg:h-[49px] h-[30px] lg:p-2 p-3 lg:text-[32px] text-base shadow-md text-[#EF5243] relative flex items-center justify-center cursor-pointer font-bold font-display bg-transparent"
+          className="lg:w-[80%] w-[90%] lg:h-[49px] h-[30px] lg:p-2 p-3 lg:text-[32px] text-base shadow-md text-[#EF5243] relative flex items-center justify-center cursor-pointer font-bold font-display bg-transparent outline-none"
           onClick={() => setOpen(!open)}
           style={{
             backgroundImage: `url(${searchbar_back})`,
@@ -174,7 +174,7 @@ function CompetitionsList() {
             placeholder="Search..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className=" searchh-input double-notch-all2 "
+            className=" searchh-input double-notch-all2 outline-none"
             style={{
               backgroundPosition: "center",
               backgroundSize: "cover",
@@ -205,6 +205,7 @@ function CompetitionsList() {
                 border: "1px solid #000",
                 transition: "background-color 0.2s",
               }}
+              className="font-display"
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#D3D3D3")}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor =

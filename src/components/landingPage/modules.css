@@ -3,13 +3,12 @@
     --card-w: 306px;
     --card-h: 512px;
     --s: 10px; /* step size for each L (change to px or % as desired) */
-    
   }
 
   
   .card {
-    width: var(--card-w);
-    height: var(--card-h);
+    /* width: var(--card-w);
+    height: var(--card-h); */
     padding: 1rem;
     box-sizing: border-box;
     display:flex;

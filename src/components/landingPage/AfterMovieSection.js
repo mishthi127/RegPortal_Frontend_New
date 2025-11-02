@@ -50,22 +50,22 @@ const AfterMovieSection = () => {
             
             {/* The video player sits inside the padded area */}
             <div className="relative pt-[56.25%] bg-black overflow-hidden">
-              <div className='absolute top-0 left-0 z-30 flex flex-col items-start'>
+              <div className='absolute top-0 left-0 z-20 flex flex-col items-start'>
                 <div className='w-[30px] h-[10px] bg-alch-cream'></div>
                 <div className='w-[20px] h-[10px] bg-alch-cream'></div>
                 <div className='w-[10px] h-[10px] bg-alch-cream'></div>
               </div>
-              <div className='absolute top-0 right-0 z-30 flex flex-col items-end'>
+              <div className='absolute top-0 right-0 z-20 flex flex-col items-end'>
                 <div className='w-[30px] h-[10px] bg-alch-cream'></div>
                 <div className='w-[20px] h-[10px] bg-alch-cream'></div>
                 <div className='w-[10px] h-[10px] bg-alch-cream'></div>
               </div>
-              <div className='absolute bottom-0 left-0 z-30 flex flex-col items-start'>
+              <div className='absolute bottom-0 left-0 z-20 flex flex-col items-start'>
                 <div className='w-[10px] h-[10px] bg-alch-cream'></div>
                 <div className='w-[20px] h-[10px] bg-alch-cream'></div>
                 <div className='w-[30px] h-[10px] bg-alch-cream'></div>
               </div>
-              <div className='absolute bottom-0 right-0 z-30 flex flex-col items-end'>
+              <div className='absolute bottom-0 right-0 z-20 flex flex-col items-end'>
                 <div className='w-[10px] h-[10px] bg-alch-cream'></div>
                 <div className='w-[20px] h-[10px] bg-alch-cream'></div>
                 <div className='w-[30px] h-[10px] bg-alch-cream'></div>

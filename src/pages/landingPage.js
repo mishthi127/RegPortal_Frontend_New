@@ -162,20 +162,6 @@ const LandingPage = () => {
     window.location.href = '/';
   };
 
-  const headerBgStyle = {
-    backgroundImage: `url(${backgroundPattern})`,
-    backgroundPosition: 'center',
-    backgroundSize: "100% auto",
-    backgroundRepeat: "no-repeat",
-  };
-
-  const mbheaderBgStyle = {
-    backgroundImage: `url(${mbbgpattern})`,
-    backgroundPosition: 'center',
-    backgroundSize: "100% auto",
-    backgroundRepeat: "no-repeat",
-  };
-
   return (
     <div>
       {loading && <Preloader />}
@@ -242,7 +228,7 @@ const LandingPage = () => {
               </DecorativeButton>
             </div>
             <div className="hidden lg:flex items-center space-x-6">
-              <Link to="/contact" className="text-alch-cream hover:text-white">Contact us</Link>
+              <Link className="text-alch-cream hover:text-white" onClick={scrollToFooter}>Contact us</Link>
               {isAuthenticated ? (
                 <ProfileDropdown user={user} onLogout={handleLogout} />
               ) : (
@@ -266,7 +252,7 @@ const LandingPage = () => {
           <div className="flex flex-col items-center justify-center h-3/4 space-y-8 text-2xl">
             <Link to="/about"  onClick={toggleMenu} className="text-alch-cream hover:text-white">About us</Link>
             <Link to="/competitions" onClick={toggleMenu} className="text-alch-cream hover:text-white">Modules & Competitions</Link>
-            <Link to="/contact" onClick={toggleMenu} className="text-alch-cream hover:text-white">Contact us</Link>
+            <Link onClick={()=>{toggleMenu();scrollToFooter()}} className="text-alch-cream hover:text-white" >Contact us</Link>
 
             {/* Conditional links for mobile menu */}
             {isAuthenticated ? (

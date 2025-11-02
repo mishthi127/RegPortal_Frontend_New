@@ -3,7 +3,7 @@ import logo from "../../assets/logo.svg";
 import phone from "../../assets/phonecall.svg";
 import "../media.css";
 
-export function Footer({ scrollToFAQ, scrollToTestimonials, scrollToComp ,ref }){
+export function Footer({ scrollToFAQ, scrollToTestimonials, scrollToComp , ref }){
     return(
         <div className="h-[890px] bg-transparent flex flex-col" ref={ref}>
             

@@ -173,7 +173,26 @@ export const CompModules = forwardRef((props, ref) => {
       </div>
 
       {/* Horizontal scrolling section */}
-      <div ref={wrapperRef} className="relative overflow-x-auto overflow-y-hidden lg:overflow-hidden h-screen flex items-center">
+      <div ref={wrapperRef} className="relative hidden overflow-x-auto overflow-y-hidden overflow-hidden h-screen lg:flex items-center">
+        <div 
+          ref={containerRef} 
+          className="flex gap-4 absolute"
+          style={{ padding: "1rem", willChange: "transform" }}
+        >
+          {loading ? (
+            <p>Loading modules...</p>
+          ) : modulesFromBackend.length === 0 ? (
+            <p>No modules available.</p>
+          ) : (
+            modulesFromBackend.map((m) => (
+              <div key={m.id ?? m.module}>
+                <Modules module={m} />
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+      <div ref={wrapperRef} className="relative lg:hidden no-scrollbar overflow-x-auto overflow-y-hidden overflow-hidden h-[400px] flex items-center pb-[30px]">
         <div 
           ref={containerRef} 
           className="flex gap-4 absolute"
