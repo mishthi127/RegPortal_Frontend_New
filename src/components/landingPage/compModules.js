@@ -192,9 +192,8 @@ export const CompModules = forwardRef((props, ref) => {
           )}
         </div>
       </div>
-      <div ref={wrapperRef} className="relative lg:hidden no-scrollbar overflow-x-auto overflow-y-hidden overflow-hidden h-[400px] flex items-center pb-[30px]">
+      <div className="relative lg:hidden no-scrollbar overflow-x-auto overflow-y-hidden overflow-hidden h-[400px] flex items-center pb-[30px]">
         <div 
-          ref={containerRef} 
           className="flex gap-4 absolute"
           style={{ padding: "1rem", willChange: "transform" }}
         >
