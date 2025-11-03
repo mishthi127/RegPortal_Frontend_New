@@ -183,6 +183,7 @@ import axiosInstance from "../../utils/axiosInstance"; // Using the custom axios
     }
 
         async function animation(){
+            setHighlight([]);
             setAnimation1(true);
             await wait(1500);
             setAnimationstart(true);
