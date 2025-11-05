@@ -248,7 +248,7 @@ const RegisterPage = () => {
           </div>
 
           {/* Competition Description */}
-          <p className="text-[#171717] font-sans text-[1rem] leading-[1.6875rem] capitalize mb-8">
+          <p className="text-[#171717] font-sans text-[1rem] leading-[1.6875rem] mb-8">
             {competition?.event_desc}
           </p>
 
@@ -256,7 +256,10 @@ const RegisterPage = () => {
           <form onSubmit={handleSubmit} className="space-y-5 max-w-3xl">
             <div>
               <label className="text-[#171717] text-[1.125rem] font-normal">
-                Add Members (Min 1 - Max 10)
+                Add Members (Min {competition?.min_members} - Max {competition?.max_members})
+                {/* {competition?.min_members}
+                { competition?.max_members} */}
+                
               </label>
 
               <div className="flex flex-wrap gap-2 mb-3">

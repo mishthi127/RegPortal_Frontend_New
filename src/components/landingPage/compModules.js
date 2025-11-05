@@ -173,7 +173,7 @@ export const CompModules = forwardRef((props, ref) => {
       </div>
 
       {/* Horizontal scrolling section */}
-      <div ref={wrapperRef} className="relative hidden overflow-x-auto overflow-y-hidden overflow-hidden h-screen lg:flex items-center">
+      <div ref={wrapperRef} className="relative hidden overflow-x-auto overflow-y-hidden overflow-hidden h-screen lg:flex items-center no-scrollbar">
         <div 
           ref={containerRef} 
           className="flex gap-4 absolute"

@@ -43,12 +43,13 @@ const AfterMovieSection = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-6xl mx-auto"//width
         >
           {/* FINAL BORDER: Built with 4 positioned divs */}
           <div className="relative p-6"> {/* Padding creates space for the border */}
             
             {/* The video player sits inside the padded area */}
+            {/* height */}
             <div className="relative pt-[56.25%] bg-black overflow-hidden">
               <div className='absolute top-0 left-0 z-20 flex flex-col items-start'>
                 <div className='w-[30px] h-[10px] bg-alch-cream'></div>
