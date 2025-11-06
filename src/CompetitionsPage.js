@@ -130,7 +130,9 @@ function CompetitionsList() {
       selectedModule === "all" ||
       (comp.module && comp.module.module === selectedModule);
     const modeMatch =
-      modeFilter === "all" || (comp.event_mode && comp.event_mode === modeFilter);
+      modeFilter === "all" ||
+      (modeFilter === "online" && comp.event_mode === "true") ||
+      (modeFilter === "offline" && comp.event_mode === "false");
     const allFields = Object.values(comp)
       .map((val) =>
         typeof val === "object"
@@ -190,7 +192,7 @@ function CompetitionsList() {
             }}
           /></div>
 
-          <div className="flex lg:hidden order-2 gap-2 self-center flex-wrap">
+          <div className="flex lg:hidden order-2 gap-2 self-center flex-wrap text-display">
           {["all", "online", "offline"].map((mode) => (
             <div
               key={mode}
@@ -219,7 +221,7 @@ function CompetitionsList() {
         </div>
 
         {/* Mode Filters for laptop*/}
-        <div className="hidden lg:flex  gap-2 mb-4 flex-wrap self-start">
+        <div className="hidden lg:flex  gap-2 mb-4 flex-wrap self-start text-display">
           {["all", "online", "offline"].map((mode) => (
             <div
               key={mode}
