@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import compimage from "../../assets/competitions.svg";
 import DecorativeButton from "../AuthPage/DecoratedButton";
 import whiteflower from "../../assets/whiteflower.svg"
 export default function Modules({ module }) {
@@ -57,7 +56,7 @@ export default function Modules({ module }) {
   return (
     <motion.div
       className="double-notch-all relative inline-block rounded-xl overflow-hidden shadow-lg cursor-pointer w-[230px] h-[330px] lg:w-[280px] lg:h-[430px]"
-      style={{backgroundImage: `url(${compimage})`, backgroundSize: 'cover', backgroundPosition: 'center'}}
+      style={{backgroundImage: `url(${backendUrl}${module.module_icon})`, backgroundSize: 'cover', backgroundPosition: 'center'}}
       initial="rest"
       whileHover="hover"
       animate="rest"
