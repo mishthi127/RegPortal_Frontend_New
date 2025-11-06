@@ -38,7 +38,7 @@ export default function LoadingScreen() {
         </div>
 
         
-          <p className="text-[40px] w-[202.51px] self-center font-sans font-semibold text-alch-red animate-pulse">Loading...</p>
+          <p className="text-[40px] w-[202.51px] self-center font-display font-semibold text-alch-red animate-pulse">Loading...</p>
       </div>
     </div>
   );

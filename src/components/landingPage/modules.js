@@ -73,7 +73,7 @@ export default function Modules({ module }) {
       >
         {/* Module name — slides up on hover */}
         <motion.h3
-          className="absolute  transform -translate-x-1/2 text-2xl font-bold tracking-wide flex flex-row gap-[5px]"
+          className="absolute  transform -translate-x-1/2 text-[16px] lg:text-[20px] font-bold  tracking-wide text-alch-cream flex flex-row gap-[5px]"
           variants={titleVariants}
           style={{ textShadow: "0 3px 8px rgba(0,0,0,0.6)" }}
         >
