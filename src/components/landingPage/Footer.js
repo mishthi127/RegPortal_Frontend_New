@@ -86,50 +86,48 @@ export function Footer({ scrollToFAQ, scrollToTestimonials, scrollToComp , ref }
 
                     {/* ===== START: NEW FLOWER ANIMATION ===== */}
 
-{/* This main container hides the scrolling overflow */}
-<div className='w-full overflow-hidden'>
+                    {/* This main container hides the scrolling overflow */}
+                    <div className='w-full overflow-hidden'>
 
-    {/* --- DESKTOP ANIMATION --- */}
-    {/* Uses your new desktop-row-1.png and desktop-row-2.png */}
-    <div className='hidden lg:block mt-[105px] w-full mx-auto'>
-        {/* Row 1: Scrolls RIGHT */}
-        <div className="w-[200%] flex animate-scroll-right">
-            {/* Two copies of the image for a seamless loop */}
-            <img className="w-[50%] h-[97.5px] object-cover" src="/desktop-row-1.png" alt="footer row 1"/>
-            <img className="w-[50%] h-[97.5px] object-cover" src="/desktop-row-1.png" alt="footer row 1"/>
-        </div>
-        {/* Row 2: Scrolls LEFT */}
-        <div className="w-[200%] flex animate-scroll-left">
-            <img className="w-[50%] h-[97.5px] object-cover" src="/desktop-row-2.png" alt="footer row 2"/>
-            <img className="w-[50%] h-[97.5px] object-cover" src="/desktop-row-2.png" alt="footer row 2"/>
-        </div>
-    </div>
+                        {/* --- DESKTOP ANIMATION --- */}
+                        {/* Uses your new desktop-row-1.png and desktop-row-2.png */}
+                        <div className='hidden lg:block mt-[105px] w-full mx-auto'>
+                            {/* Row 1: Scrolls RIGHT */}
+                            <div className="w-[200%] flex animate-scroll-right">
+                                {/* Two copies of the image for a seamless loop */}
+                                <img className="w-[50%] h-[97.5px] object-cover" src="/desktop-row-1.png" alt="footer row 1"/>
+                                <img className="w-[50%] h-[97.5px] object-cover" src="/desktop-row-1.png" alt="footer row 1"/>
+                            </div>
+                            {/* Row 2: Scrolls LEFT */}
+                            <div className="w-[200%] flex animate-scroll-left">
+                                <img className="w-[50%] h-[97.5px] object-cover" src="/desktop-row-2.png" alt="footer row 2"/>
+                                <img className="w-[50%] h-[97.5px] object-cover" src="/desktop-row-2.png" alt="footer row 2"/>
+                            </div>
+                        </div>
 
-    {/* --- MOBILE ANIMATION --- */}
-    {/* Uses your new mobile-row-1.png and mobile-row-2.png */}
-    <div className='block lg:hidden mt-[80px] w-full'>
-        {/* Row 1: Scrolls RIGHT */}
-        <div className="w-[200%] flex animate-scroll-right">
-            <img className="w-[50%] h-[42.5px] object-cover" src="/mobile-row-1.png" alt="footer row 1"/>
-            <img className="w-[50%] h-[42.5px] object-cover" src="/mobile-row-1.png" alt="footer row 1"/>
-        </div>
-        {/* Row 2: Scrolls LEFT */}
-        <div className="w-[200%] flex animate-scroll-left">
-            <img className="w-[50%] h-[42.5px] object-cover" src="/mobile-row-2.png" alt="footer row 2"/>
-            <img className="w-[50%] h-[42.5px] object-cover" src="/mobile-row-2.png" alt="footer row 2"/>
-        </div>
-    </div>
-</div>
-{/* ===== END: NEW FLOWER ANIMATION ===== */}
+                        {/* --- MOBILE ANIMATION --- */}
+                        {/* Uses your new mobile-row-1.png and mobile-row-2.png */}
+                        <div className='block lg:hidden mt-[80px] w-full'>
+                            {/* Row 1: Scrolls RIGHT */}
+                            <div className="w-[200%] flex animate-scroll-right">
+                                <img className="w-[50%] h-[42.5px] object-cover" src="/mobile-row-1.png" alt="footer row 1"/>
+                                <img className="w-[50%] h-[42.5px] object-cover" src="/mobile-row-1.png" alt="footer row 1"/>
+                            </div>
+                            {/* Row 2: Scrolls LEFT */}
+                            <div className="w-[200%] flex animate-scroll-left">
+                                <img className="w-[50%] h-[42.5px] object-cover" src="/mobile-row-2.png" alt="footer row 2"/>
+                                <img className="w-[50%] h-[42.5px] object-cover" src="/mobile-row-2.png" alt="footer row 2"/>
+                            </div>
+                        </div>
+                    </div>
+                    {/* ===== END: NEW FLOWER ANIMATION ===== */}
 
                     <div className="text-alch-cream text-[10px] lg:text-sm font-normal tracking-[0.02em] leading-[140%] h-[40px] lg:w-[1293px] w-full lg:ml-[79px] mt-[60px] flex justify-center lg:justify-between">
                         <a href="https://alcheringa.co.in/" target="_blank" rel="noopener noreferrer" className="w-full lg:w-[257px] text-center lg:text-left text-alch-cream no-underline">
                             Alcheringa @ 2025. All rights reserved.
                         </a>
                         <div className="hidden lg:flex justify-between w-[339px] h-[40px]">
-                            <p>Contact us</p>
-                            <p>Feedback</p>
-                            <p>Privacy Policy</p>
+                            <p>Developed by Team Web Operations</p>
                         </div>
                     </div>
                     <img className="w-full h-auto mt-auto" src="/image131footer.png" alt="image131"/>
