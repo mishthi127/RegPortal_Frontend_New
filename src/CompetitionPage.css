@@ -93,7 +93,7 @@
   box-sizing: border-box;
   opacity: 0;               /* hidden by default */
   transform: translateY(20px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.8s ease, transform 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -151,6 +151,11 @@
 /* Make prize initially hidden */
 .prize {
   opacity: 0;                 /* hidden */
+    
+  position: relative;
+  height: 40px;
+  top:20px;
+  padding: 10px;  
   transform: translateY(20px); /* optional slide-in */
   transition: opacity 0.5s ease, transform 0.5s ease; /* smooth transition */
 }
@@ -309,5 +314,49 @@
       0 calc(100% - var(--k))
     );
   }
+
+   
+
+ /* make sure parent is positioned (you already have this) */
+.competition-card {
+  position: relative; /* already present in your CSS */
+  overflow: hidden;
+  
+}
+
+/* make the default container keep spacing for the button */
+.competition-default {
+  height: 100%;
+  padding: 1rem;           /* keep inner spacing */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* style the h3 for absolute-centering initially */
+.competition-default h3 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* center */
+  margin: 0;
+  transition: top 0.35s ease, transform 0.35s ease;
+  z-index: 3;
+  pointer-events: none; /* so hover on card still works */
+}
+
+/* when hovering the card, move the h3 to the top and center horizontally */
+.competition-card:hover .competition-default h3 {
+  top: 1rem;                      /* distance from top when "stuck" */
+  transform: translateX(-50%);    /* keep horizontally centered */
+}
+
+/* make sure button stays at bottom and is visible above overlay */
+.dec-btn {
+  margin-top: auto;
+  z-index: 2;
+  position: relative;
+}
+
 
  
