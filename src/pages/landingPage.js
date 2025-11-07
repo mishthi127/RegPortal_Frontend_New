@@ -185,8 +185,9 @@ const LandingPage = () => {
             <div className="hidden lg:flex items-center">
               <DecorativeButton to="#" variant="nav">
                 <div className="flex space-x-8 px-4 text-sm">
-                  <Link to="/about" className="text-alch-cream hover:text-white whitespace-nowrap">About us</Link>
+                  {/* <Link to="/about" className="text-alch-cream hover:text-white whitespace-nowrap">About us</Link> */}
                   <Link to="/competitions" className="text-alch-cream hover:text-white whitespace-nowrap">Modules & Competitions</Link>
+                  <p className='text-alch-cream hover:text-white whitespace-nowrap' onClick={ scrollToFAQ}>FAQ</p>
                 </div>
               </DecorativeButton>
             </div>
@@ -222,7 +223,7 @@ const LandingPage = () => {
             <div className="hidden lg:flex items-center">
               <DecorativeButton to="#" variant="nav">
                 <div className="flex space-x-8 px-4 text-sm">
-                  <Link to="/about" className="text-alch-cream hover:text-white whitespace-nowrap">About us</Link>
+                  {/* <Link to="/about" className="text-alch-cream hover:text-white whitespace-nowrap">About us</Link> */}
                   <Link to="/competitions" className="text-alch-cream hover:text-white whitespace-nowrap">  Modules & Competitions</Link>
                 </div>
               </DecorativeButton>
@@ -250,15 +251,46 @@ const LandingPage = () => {
             </button>
           </div>
           <div className="flex flex-col items-center justify-center h-3/4 space-y-8 text-2xl">
-            <Link to="/about"  onClick={toggleMenu} className="text-alch-cream hover:text-white">About us</Link>
-            <Link to="/competitions" onClick={toggleMenu} className="text-alch-cream hover:text-white">Modules & Competitions</Link>
+            {/* <Link to="/about"  onClick={toggleMenu} className="text-alch-cream hover:text-white">About us</Link> */}
+            {isAuthenticated && (
+              <>
+                <Link
+                  to="/profile"
+                  state={{ tabIndex: 1 }}
+                  onClick={toggleMenu}
+                  className="text-alch-cream hover:text-white"
+                >
+                  My Profile
+                </Link>
+
+                <Link
+                  to="/profile"
+                  state={{ tabIndex: 2 }}
+                  onClick={toggleMenu}
+                  className="text-alch-cream hover:text-white"
+                >
+                  My Registration
+                </Link>
+
+                <Link
+                  to="/profile"
+                  state={{ tabIndex: 3 }}
+                  onClick={toggleMenu}
+                  className="text-alch-cream hover:text-white"
+                >
+                  Team Members
+                </Link>
+              </>
+            )}
+            <Link onClick={()=>{toggleMenu();scrollToComp()}} className="text-alch-cream hover:text-white">Modules</Link>
+            <Link to="/competitions" onClick={toggleMenu} className="text-alch-cream hover:text-white">Competitions</Link>
             <Link onClick={()=>{toggleMenu();scrollToFooter()}} className="text-alch-cream hover:text-white" >Contact us</Link>
 
             {/* Conditional links for mobile menu */}
             {isAuthenticated ? (
               <>
-                <Link to="/profile" state={{ tabIndex: 1 }} onClick={toggleMenu} className="text-alch-cream hover:text-white">My Profile</Link>
-                <Link to="/profile" state={{ tabIndex: 3 }} onClick={toggleMenu} className="text-alch-cream hover:text-white">Team Members</Link>
+                {/* <Link to="/profile" state={{ tabIndex: 1 }} onClick={toggleMenu} className="text-alch-cream hover:text-white">My Profile</Link>
+                <Link to="/profile" state={{ tabIndex: 3 }} onClick={toggleMenu} className="text-alch-cream hover:text-white">Team Members</Link> */}
                 <button
                   onClick={() => {
                     toggleMenu();
@@ -288,7 +320,7 @@ const LandingPage = () => {
           className='bg-alch-cream landingbg'  
         >
             <AfterMovieSection />
-            <TestimonialsSection ref={testimonialRef}/>
+            {/* <TestimonialsSection ref={testimonialRef}/> */}
             <FAQS ref={faqRef}/>
             <Footer scrollToFAQ={scrollToFAQ} scrollToTestimonials={scrollToTestimonials} scrollToComp={scrollToComp} ref={footerRef}/>
         </div> 
