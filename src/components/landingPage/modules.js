@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import compimage from "../../assets/competitions.svg";
 import DecorativeButton from "../AuthPage/DecoratedButton";
+import whiteflower from "../../assets/whiteflower.svg"
 export default function Modules({ module }) {
   const navigate = useNavigate();
   const [competitions, setCompetitions] = useState([]);
@@ -55,17 +55,16 @@ export default function Modules({ module }) {
 
   return (
     <motion.div
-      className=" card double-notch-all relative inline-block rounded-xl overflow-hidden shadow-lg cursor-pointer"
-      style={{backgroundImage: `url(${compimage})`, backgroundSize: 'cover', backgroundPosition: 'center',width: 300, height: 380}}
+      className="double-notch-all relative inline-block rounded-xl overflow-hidden shadow-lg cursor-pointer w-[230px] h-[330px] lg:w-[300px] lg:h-[450px]"
+      style={{backgroundImage: `url(${backendUrl}${module.module_icon})`, backgroundSize: 'cover', backgroundPosition: 'center'}}
       initial="rest"
       whileHover="hover"
       animate="rest"
       onHoverStart={fetchCompetitions} // fetch competitions on hover
-      
+      onClick={(e) => {e.stopPropagation(); // prevent parent click
+        navigate("/competitions", { state: { module: module.module } });
+      }}
     >
-     
-      
-
       {/* Overlay */}
       <motion.div
         className="absolute inset-0 flex flex-col items-center justify-center text-white"
@@ -73,11 +72,13 @@ export default function Modules({ module }) {
       >
         {/* Module name — slides up on hover */}
         <motion.h3
-          className="absolute  transform -translate-x-1/2 text-2xl font-bold tracking-wide"
+          className="absolute  transform -translate-x-1/2 text-[16px] lg:text-[20px] font-bold  tracking-wide text-alch-cream flex flex-row gap-[5px]"
           variants={titleVariants}
           style={{ textShadow: "0 3px 8px rgba(0,0,0,0.6)" }}
         >
-          {module.module}
+           <img src={whiteflower} alt="floweer"/>
+            {module.module}
+           <img src={whiteflower} alt="floweer"/>
         </motion.h3>
 
         {/* Competitions info — middle of the card */}
@@ -90,9 +91,9 @@ export default function Modules({ module }) {
           ) : competitions.length > 0 ? (
             <ul className="text-sm space-y-1 no-scrollbar" style={{height:"100px",overflow:"scroll"}}>
               {competitions.map((comp) => (
-                <li key={comp.id} className="bg-black/2 rounded-md p-1">
-                  {comp.event_name}
-                </li>
+                  <li key={comp.id} className="bg-black/2 rounded-md p-1">
+                    {comp.event_name}
+                  </li>
               ))}
             </ul>
           ) : (
@@ -104,10 +105,9 @@ export default function Modules({ module }) {
         <motion.button
           className="absolute bottom-6 px-4  font-semibold shadow-md"
           variants={buttonVariants}
-          onClick={(e) => {
-    e.stopPropagation(); // prevent parent click
-    navigate("/competitions", { state: { module: module.module } });
-  }}
+          onClick={(e) => {e.stopPropagation(); // prevent parent click
+            navigate("/competitions", { state: { module: module.module } });
+          }}
         >
           <DecorativeButton>Explore</DecorativeButton>
         

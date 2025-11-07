@@ -77,7 +77,7 @@ const ForgotPasswordPage = () => {
         ];
 
         return React.createElement(AuthLayout, { promoTitle: "FORGOT YOUR PASSWORD?", promoSubtitle: "Enter your email to get a reset code" },
-            React.createElement('h2', { className: 'font-display text-3xl font-bold text-gray-800' }, 'FORGOT PASSWORD'),
+            React.createElement('h2', { className: 'font-display text-3xl font-semibold text-gray-800' }, 'FORGOT PASSWORD'),
             React.createElement('p', { className: 'text-brand-gray mt-2' }, "We'll send a verification code to your email."),
             React.createElement('form', { className: 'mt-8 space-y-4', onSubmit: handleEmailSubmit }, formFields)
         );

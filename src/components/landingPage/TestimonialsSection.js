@@ -1,7 +1,6 @@
 import { motion, useMotionValue } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-
 import { useState, useRef, useCallback, useEffect, forwardRef } from "react";
 
 import headingIconRed from "../../assets/heading-icon-red.svg";
@@ -55,7 +54,7 @@ const TestimonialsSection = forwardRef((props, ref) => {
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const constraintsRef = useRef(null);
-  
+
   const thumbMotionX = useMotionValue(0);
   const trackWidth = 272;
   const thumbWidth = 68;
@@ -98,36 +97,38 @@ const TestimonialsSection = forwardRef((props, ref) => {
     }
   }, [scrollProgress, isDragging, maxDragX, thumbMotionX]);
 
+  // ✅ New scroll functions for left/right buttons
+  const scrollLeft = () => {
+    if (swiperInstance) swiperInstance.slidePrev();
+  };
+  const scrollRight = () => {
+    if (swiperInstance) swiperInstance.slideNext();
+  };
+
   return (
-    <section ref={ref} className="py-16" style={{ background: "transparent" }}>
-      <div className="max-w-7xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="flex items-center justify-center text-center font-display text-[30px] lg:text-[48px] font-extrabold text-alch-dark mb-16"
-        >
+    <section ref={ref} className="py-16 bg-transparent">
+      <div className="w-full">
+        <h2 className="flex items-center justify-center text-center font-display text-[30px] lg:text-[48px] font-extrabold text-alch-dark mb-16">
           <img src={headingIconRed} alt="Decorative Icon" className="h-5 sm:h-6 mx-2" />
           TESTIMONIALS
           <img src={headingIconRed} alt="Decorative Icon" className="h-5 sm:h-6 mx-2" />
-        </motion.h2>
+        </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start pl-4 sm:pl-8">
-          {/* Left section */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-alch-dark text-center lg:text-left"
-          >
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-start pl-4 sm:pl-8">
+          {/* Left static section */}
+          <div className="text-alch-dark text-center lg:text-left">
             <img src={quoteIcon} alt="Quote" className="h-[38.12px] lg:h-16 mx-auto lg:mx-0" />
             <h3 className="text-[20px] lg:text-3xl font-bold mt-4 leading-snug w-full max-w-[272px] mx-auto lg:mx-0 text-left">
-              What our previous<br className="block" /> Participants are<br className="block" /> saying
+              What our previous<br /> Participants are<br /> saying
             </h3>
             <div className="mt-10 flex items-center justify-center lg:justify-start space-x-2">
-              <img src={slideBarLeftDeco} alt="Left Deco" className="w-6 h-6" />
+              {/* ✅ Left click → scroll left */}
+              <img
+                src={slideBarLeftDeco}
+                alt="Left Deco"
+                className="w-6 h-6 cursor-pointer"
+                onClick={scrollLeft}
+              />
               <div
                 ref={constraintsRef}
                 className="relative h-[20px] cursor-pointer group"
@@ -135,7 +136,7 @@ const TestimonialsSection = forwardRef((props, ref) => {
                 onClick={handleTrackClick}
               >
                 <motion.div
-                  className="absolute top-0 left-0 h-full bg-[#FFB261] transition-colors duration-200 group-hover:bg-[#FFA347]"
+                  className="absolute top-0 left-0 h-full bg-[#FFB261]"
                   style={{ width: `${thumbWidth}px`, x: thumbMotionX }}
                   drag="x"
                   dragConstraints={constraintsRef}
@@ -146,18 +147,18 @@ const TestimonialsSection = forwardRef((props, ref) => {
                   onDragEnd={handleThumbDragEnd}
                 />
               </div>
-              <img src={slideBarLeftDeco} alt="Right Deco" className="w-6 h-6 scale-x-[-1]" />
+              {/* ✅ Right click → scroll right */}
+              <img
+                src={slideBarLeftDeco}
+                alt="Right Deco"
+                className="w-6 h-6 scale-x-[-1] cursor-pointer"
+                onClick={scrollRight}
+              />
             </div>
-          </motion.div>
+          </div>
 
           {/* Swiper section */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-2 overflow-hidden"
-          >
+          <div className="lg:col-span-2 overflow-hidden">
             <Swiper
               onSwiper={setSwiperInstance}
               onSlideChange={handleSlideChange}
@@ -172,7 +173,7 @@ const TestimonialsSection = forwardRef((props, ref) => {
                 </SwiperSlide>
               ))}
             </Swiper>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

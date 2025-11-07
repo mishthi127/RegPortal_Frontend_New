@@ -16,7 +16,7 @@ import axiosInstance from "../../utils/axiosInstance"; // Using the custom axios
         const [animationdone, setAnimationdone] = useState(false);
         const [animationstart, setAnimationstart] = useState(false);
         const [yourturn, setYourturn] = useState(false);
-        const [animation1, setAnimation1] = useState(true);
+        const [animation1, setAnimation1] = useState(false);
 
         const animation2 = [{row: 7, col: 18},{row: 9, col: 18},{row: 8, col: 17},{row: 8, col: 19}];
         const animation3 = [];
@@ -98,19 +98,36 @@ import axiosInstance from "../../utils/axiosInstance"; // Using the custom axios
 
         animation3.push(...animation3Part3, ...animation3Part2, ...animation3Part1, ...animation3Part0);
 
-
     useEffect(() => {
         if (token) {
-            axiosInstance.get("/profile/") // Using updated axios instance
+            axiosInstance.get("/profile/")
                 .then(res => {
-                    // Correctly access pixel_highlight from the root of the response data
                     if (res.data && res.data.pixel_highlight) {
-                        setHighlight(res.data.pixel_highlight);
+                        const highlights = res.data.pixel_highlight;
+                        setHighlight(highlights);
+
+                        // 👇 If no highlight submitted, start animation1
+                        if (highlights.length === 0) {
+                            setAnimation1(true);
+                        } else {
+                            setAnimation1(false);
+                        }
+                    } else {
+                        // 👇 No pixel_highlight in response
+                        setAnimation1(true);
                     }
                 })
-                .catch(err => console.error("Profile fetch error:", err));
+                .catch(err => {
+                    console.error("Profile fetch error:", err);
+                    // Optional: default animation in case of error
+                    setAnimation1(true);
+                });
+        } else {
+            // 👇 User not logged in — show animation
+            setAnimation1(true);
         }
     }, [token]);
+
     
     // --- All grid and styling definitions are unchanged ---
     const customTransparent1 = [{ row: 0, col: 0 }, { row: 0, col: 1 }, { row: 1, col: 0 }, { row: 1, col: 1 }, { row: 1, col: 2 }, { row: 2, col: 0 }, { row: 2, col: 1 }, { row: 2, col: 2 }, { row: 2, col: 3 }, { row: 3, col: 0 }, { row: 3, col: 1 }, { row: 3, col: 2 }, { row: 4, col: 0 }, { row: 4, col: 1 }, { row: 5, col: 0 }];
@@ -168,7 +185,7 @@ import axiosInstance from "../../utils/axiosInstance"; // Using the custom axios
         async function animation(){
             setHighlight([]);
             setAnimation1(true);
-            await wait(500);
+            await wait(1500);
             setAnimationstart(true);
             setAnimation1(false);
             setHighlight(animation2);

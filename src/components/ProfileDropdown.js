@@ -22,10 +22,7 @@ const ProfileDropdown = ({ user, onLogout, onTabClick }) => {
     };
   }, []);
 
-  const profileImage =
-    user?.img && !user.img.includes('user-default.png')
-      ? `${backendUrl}${user.img}`
-      : authorPlaceholder;
+  const profileImage = user?.profilePic || authorPlaceholder;
 
   return (
     <div className="relative" ref={dropdownRef}>

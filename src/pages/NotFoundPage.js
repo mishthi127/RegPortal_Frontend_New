@@ -18,8 +18,8 @@ const NotFoundPage = () => {
     React.createElement('div', { className: 'relative min-h-screen bg-brand-beige flex items-center justify-center' },
       
       React.createElement('div', {
-        style: patternOverlayStyle,
-        className: 'absolute inset-0 opacity-100',
+        
+        className: 'landingbg absolute inset-0 opacity-100',
       }),
       
       React.createElement('div', { className: 'relative z-10' },

@@ -101,28 +101,28 @@ export const CompModules = forwardRef((props, ref) => {
     <div className="no-scrollbar" ref={ref}>
       <div className="lg:flex hidden flex-row items-center justify-around w-[100%]  mb-[120px]">
         <div className="text-center mt-[120px]">
-          <CountUp from={0} to={140} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-700 text-[48px]"/>
-          <p className="font-sans font-700 text-[48px] inline-block">k+</p>
+          <CountUp from={0} to={140} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-extrabold text-[48px]"/>
+          <p className="font-sans font-extrabold text-[48px] inline-block">k+</p>
           <p className="font-sans font-normal text-[24px]">Footfall</p>
         </div>
         <div className="text-center mt-[120px]">
-          <CountUp from={0} to={100} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-700 text-[48px]"/>
-          <p className="font-sans font-700 text-[48px] inline-block">+</p>
+          <CountUp from={0} to={100} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-extrabold text-[48px]"/>
+          <p className="font-sans font-extrabold text-[48px] inline-block">+</p>
           <p className="font-sans font-normal text-[24px]">Events</p>
         </div>
         <div className="text-center mt-[120px]">
-          <CountUp from={0} to={3000} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-700 text-[48px]"/>
-          <p className="font-sans font-700 text-[48px] inline-block">+</p>
+          <CountUp from={0} to={3000} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-extrabold text-[48px]"/>
+          <p className="font-sans font-extrabold text-[48px] inline-block">+</p>
           <p className="font-sans font-normal text-[24px]">Participants</p>
         </div>
         <div className="text-center mt-[120px]">
-          <CountUp from={0} to={500} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-700 text-[48px]"/>
-          <p className="font-sans font-700 text-[48px] inline-block">+</p>
+          <CountUp from={0} to={500} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-extrabold text-[48px]"/>
+          <p className="font-sans font-extrabold text-[48px] inline-block">+</p>
           <p className="font-sans font-normal text-[24px]">College</p>
         </div>
         <div className="text-center mt-[120px]">
-          <CountUp from={0} to={45} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-700 text-[48px]"/>
-          <p className="font-sans font-700 text-[48px] inline-block">+</p>
+          <CountUp from={0} to={45} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-extrabold text-[48px]"/>
+          <p className="font-sans font-extrabold text-[48px] inline-block">+</p>
           <p className="font-sans font-normal text-[24px]">Competitions</p>
         </div>
       </div>
@@ -130,31 +130,31 @@ export const CompModules = forwardRef((props, ref) => {
       <div className="flex lg:hidden lg:flex-row flex-col items-center justify-around w-[100%] mb-[140px]">
         <div className="flex flex-row gap-[50px] mb-[50px]">
           <div className="text-center mt-[50px]">
-            <CountUp from={0} to={140} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-700 text-[24px] lg:text-[48px]"/>
-            <p className="font-sans font-700 text-[24px] lg:text-[48px] inline-block">k+</p>
+            <CountUp from={0} to={140} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-extrabold text-[24px] lg:text-[48px]"/>
+            <p className="font-sans font-extrabold text-[24px] lg:text-[48px] inline-block">k+</p>
             <p className="font-sans font-normal text-[12px] lg:text-[24px]">Footfall</p>
           </div>
           <div className="text-center mt-[50px]">
-            <CountUp from={0} to={100} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-700 text-[24px] lg:text-[48px]"/>
-            <p className="font-sans font-700 text-[24px] lg:text-[48px] inline-block">+</p>
+            <CountUp from={0} to={100} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-extrabold text-[24px] lg:text-[48px]"/>
+            <p className="font-sans font-extrabold text-[24px] lg:text-[48px] inline-block">+</p>
             <p className="font-sans font-normal text-[12px] lg:text-[24px]">Events</p>
           </div>
         </div>
         <div className="flex flex-row gap-[50px] mb-[50px]">
           <div className="text-center mt-[50px]">
-            <CountUp from={0} to={3000} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-700 text-[24px] lg:text-[48px]"/>
-            <p className="font-sans font-700 text-[24px] lg:text-[48px] inline-block">+</p>
+            <CountUp from={0} to={3000} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-extrabold text-[24px] lg:text-[48px]"/>
+            <p className="font-sans font-extrabold text-[24px] lg:text-[48px] inline-block">+</p>
             <p className="font-sans font-normal text-[12px] lg:text-[24px]">Participants</p>
           </div>
           <div className="text-center mt-[50px]">
-            <CountUp from={0} to={500} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-700 text-[24px] lg:text-[48px]"/>
-            <p className="font-sans font-700 text-[24px] lg:text-[48px] inline-block">+</p>
+            <CountUp from={0} to={500} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-extrabold text-[24px] lg:text-[48px]"/>
+            <p className="font-sans font-extrabold text-[24px] lg:text-[48px] inline-block">+</p>
             <p className="font-sans font-normal text-[12px] lg:text-[24px]">College</p>
           </div>
         </div>
         <div className="text-center mt-[50px]">
-          <CountUp from={0} to={45} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-700 text-[24px] lg:text-[48px]"/>
-          <p className="font-sans font-700 text-[24px] lg:text-[48px] inline-block">+</p>
+          <CountUp from={0} to={45} separator="," direction="up" duration={0.8} className="count-up-text font-sans font-extrabold text-[24px] lg:text-[48px]"/>
+          <p className="font-sans font-extrabold text-[24px] lg:text-[48px] inline-block">+</p>
           <p className="font-sans font-normal text-[12px] lg:text-[24px]">Competitions</p>
         </div>
       </div>
@@ -173,9 +173,29 @@ export const CompModules = forwardRef((props, ref) => {
       </div>
 
       {/* Horizontal scrolling section */}
-      <div ref={wrapperRef} className="relative overflow-x-auto overflow-y-hidden lg:overflow-hidden h-screen flex items-center">
+      {/* lg */}
+      <div ref={wrapperRef} className="relative hidden overflow-x-auto overflow-y-hidden overflow-hidden h-screen lg:flex items-center no-scrollbar">
         <div 
           ref={containerRef} 
+          className="flex gap-4 absolute"
+          style={{ padding: "1rem", willChange: "transform" }}
+        >
+          {loading ? (
+            <p>Loading modules...</p>
+          ) : modulesFromBackend.length === 0 ? (
+            <p>No modules available.</p>
+          ) : (
+            modulesFromBackend.map((m) => (
+              <div key={m.id ?? m.module}>
+                <Modules module={m} />
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+      {/* mobile */}
+      <div className="relative lg:hidden no-scrollbar overflow-x-auto overflow-y-hidden overflow-hidden h-[400px] flex items-center pb-[30px]">
+        <div 
           className="flex gap-4 absolute"
           style={{ padding: "1rem", willChange: "transform" }}
         >

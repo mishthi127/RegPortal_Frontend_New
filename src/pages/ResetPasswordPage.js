@@ -69,7 +69,7 @@ const ResetPasswordPage = () => {
 
     return (
         React.createElement(AuthLayout, { promoTitle: "RESET YOUR PASSWORD", promoSubtitle: "No worries, we've got you covered" },
-            React.createElement('h2', { className: 'font-display text-3xl font-bold text-gray-800' }, 'RESET PASSWORD'),
+            React.createElement('h2', { className: 'font-display text-3xl font-semibold text-gray-800' }, 'RESET PASSWORD'),
             React.createElement('p', { className: 'text-brand-gray mt-2' }, "Enter your new password below to reset it."),
             React.createElement('form', { className: 'mt-8 space-y-4', onSubmit: handleSubmit }, formFields)
         )

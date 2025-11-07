@@ -1,6 +1,6 @@
 // src/components/AuthPage/AuthLayout.js
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 const backgroundPattern = require("../../assets/background-pattern.svg").default;
 const authFrame = require("../../assets/auth-frame.svg").default;
 const authImg = require("../../assets/auth-img.svg").default;
@@ -27,7 +27,13 @@ const AuthLayout = ({ children, promoTitle, promoSubtitle, sizeMode = "fixed" })
     containerClasses.push("lg:aspect-[1032/671]");
   }
 
-  const rightPanelClasses = ["w-full", "p-8", "lg:w-[53.9%]"];
+  // ✅ Reduced width slightly and centered better
+  const rightPanelClasses = [
+    "w-full",
+    "p-6", // slightly reduced padding
+    "lg:w-[45%]", // reduced from 45%
+    "mx-auto", // keeps it centered in its flex area
+  ];
   if (sizeMode === "fixed") {
     rightPanelClasses.push(
       "lg:flex",
@@ -42,11 +48,12 @@ const AuthLayout = ({ children, promoTitle, promoSubtitle, sizeMode = "fixed" })
       <div style={pageStyle} className="absolute inset-0 opacity-20" />
 
       <div className={containerClasses.join(" ")}>
-        {/* Frame (acts as the visible border shape) */}
+        {/* Frame */}
         <div style={frameStyle} className="absolute inset-0 z-0" />
 
-        <div className="relative z-10 flex flex-col lg:flex-row lg:h-full overflow-hidden rounded-[2vw]">
-          {/* Left panel with image */}
+        {/* ✅ Added justify-between + responsive gap control */}
+        <div className="relative z-10 flex flex-col lg:flex-row lg:h-full overflow-hidden rounded-[2vw] lg:justify-between gap-x-6">
+          {/* Left panel */}
           <div
             className="
               relative w-full h-48 
@@ -60,15 +67,14 @@ const AuthLayout = ({ children, promoTitle, promoSubtitle, sizeMode = "fixed" })
                 src={authImg}
                 alt="Decorative Auth Background"
                 className="
-                w-full h-full object-cover
-                object-[center_90%]
-                md:object-center
-                transition-all duration-300
-                cursor-pointer
+                  w-full h-full object-cover
+                  object-[center_90%]
+                  md:object-center
+                  transition-all duration-300
+                  cursor-pointer
                 "
               />
             </Link>
-
           </div>
 
           {/* Right panel */}

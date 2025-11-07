@@ -1,5 +1,5 @@
 // src/pages/ProfilePage.js
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef , useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { formatDistanceToNow } from 'date-fns';
 import axios from "axios";
@@ -18,6 +18,8 @@ import { useLocation } from "react-router-dom";
 import LoadingScreen from "../components/LoadingScreen.js";
 import logo from '../assets/logo.svg';
 import MyRegistrations from "./MyRegisteredCompetitions.js";
+import Cropper from 'react-easy-crop'; // +++ IMPORT CROPPER
+import getCroppedImg from '../utils/cropImage'; // +++ IMPORT UTILITY
 
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -37,6 +39,14 @@ const ProfilePage = () => {
   const [imageFile, setImageFile] = useState(null); // To hold the selected file
   const [imagePreview, setImagePreview] = useState(null); // To show a preview of the new image
   const fileInputRef = useRef(null); // To programmatically click the file input
+
+  // +++ START: CROPPER STATE +++
+  const [cropperOpen, setCropperOpen] = useState(false);
+  const [tempImageSrc, setTempImageSrc] = useState(null);
+  const [crop, setCrop] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
+  // +++ END: CROPPER STATE +++
 
   const invert = (index) => {
     // Only open new index; if already open, do nothing
@@ -110,13 +120,48 @@ const ProfilePage = () => {
       });
   }, [navigate]);
 
+ // +++ UPDATED: HANDLE IMAGE CHANGE TO OPEN CROPPER +++
   const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setImageFile(file); // Store the actual file
-      setImagePreview(URL.createObjectURL(file)); // Create a temporary URL for the preview
+    if (e.target.files && e.target.files.length > 0) {
+      const file = e.target.files[0];
+      // Create a URL for the selected file to show in the cropper
+      const imageDataUrl = URL.createObjectURL(file);
+      setTempImageSrc(imageDataUrl);
+      setCropperOpen(true);
+      // Reset file input so the same file can be selected again if needed
+      e.target.value = null;
     }
   };
+
+  // +++ NEW: CROPPER FUNCTIONS +++
+  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
+    setCroppedAreaPixels(croppedAreaPixels);
+  }, []);
+
+  const showCroppedImage = useCallback(async () => {
+    try {
+      const croppedImageBlob = await getCroppedImg(
+        tempImageSrc,
+        croppedAreaPixels
+      );
+      
+      // Create a File object from the Blob to match your original upload logic
+      const file = new File([croppedImageBlob], "profile_cropped.jpg", { type: "image/jpeg" });
+
+      setImageFile(file); // Store the cropped file for upload
+      setImagePreview(URL.createObjectURL(croppedImageBlob)); // Show preview of cropped image
+      setCropperOpen(false); // Close modal
+    } catch (e) {
+      console.error(e);
+      setError("Failed to crop image.");
+    }
+  }, [tempImageSrc, croppedAreaPixels]);
+
+  const handleCropperClose = () => {
+    setCropperOpen(false);
+    setTempImageSrc(null);
+  };
+  // +++ END: CROPPER FUNCTIONS +++
 
   const handleLogout = () => {
     localStorage.removeItem("access");
@@ -266,6 +311,49 @@ if (alternate_phone && !phoneRegex.test(alternate_phone)) {
 
   return (
     <div className="pixelbg min-h-screen bg-brand-dark p-4 sm:p-8">
+      {/* +++ INSERT CROPPER MODAL HERE +++ */}
+      {cropperOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75">
+          <div className="relative w-full max-w-md bg-alch-dark border-2 border-alch-cream p-4 rounded-lg">
+            <div className="relative h-64 sm:h-80 w-full bg-gray-900 mb-4">
+              <Cropper
+                image={tempImageSrc}
+                crop={crop}
+                zoom={zoom}
+                aspect={1}
+                onCropChange={setCrop}
+                onCropComplete={onCropComplete}
+                onZoomChange={setZoom}
+              />
+            </div>
+            <div className="flex items-center gap-2 mb-4">
+               <span className="text-alch-cream text-sm">Zoom</span>
+               <input
+                  type="range"
+                  value={zoom}
+                  min={1}
+                  max={3}
+                  step={0.1}
+                  aria-labelledby="Zoom"
+                  onChange={(e) => setZoom(Number(e.target.value))}
+                  className="w-full"
+                />
+            </div>
+            <div className="flex justify-end gap-4">
+              <button 
+                onClick={handleCropperClose}
+                className="px-4 py-2 text-sm text-alch-cream hover:text-white"
+              >
+                Cancel
+              </button>
+              <DecoratedButton onClick={showCroppedImage} size="sm">
+                Done
+              </DecoratedButton>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* +++ END CROPPER MODAL +++ */}
       <main className="w-full max-w-5xl mx-auto">
         <div className="mb-8 flex justify-between items-center">
           <div className="flex flex-row items-center justify-center gap-[20px]">

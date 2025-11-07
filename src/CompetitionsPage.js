@@ -38,7 +38,7 @@ function ModuleDropdown({ modules, selectedModule, setSelectedModule }) {
         }}
       >
         <div
-          className="lg:w-[80%] w-[90%] lg:h-[49px] h-[30px] lg:p-2 p-3 lg:text-[32px] text-base shadow-md text-[#EF5243] relative flex items-center justify-center cursor-pointer font-bold font-display bg-transparent"
+          className="lg:w-[80%] w-[90%] lg:h-[49px] h-[30px] lg:p-2 p-3 lg:text-[32px] text-base shadow-md text-[#EF5243] relative flex items-center justify-center cursor-pointer font-bold font-display bg-transparent outline-none"
           onClick={() => setOpen(!open)}
           style={{
             backgroundImage: `url(${searchbar_back})`,
@@ -130,7 +130,9 @@ function CompetitionsList() {
       selectedModule === "all" ||
       (comp.module && comp.module.module === selectedModule);
     const modeMatch =
-      modeFilter === "all" || (comp.event_mode && comp.event_mode === modeFilter);
+      modeFilter === "all" ||
+      (modeFilter === "online" && comp.event_mode === "true") ||
+      (modeFilter === "offline" && comp.event_mode === "false");
     const allFields = Object.values(comp)
       .map((val) =>
         typeof val === "object"
@@ -174,7 +176,7 @@ function CompetitionsList() {
             placeholder="Search..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className=" searchh-input double-notch-all2 "
+            className=" searchh-input double-notch-all2 outline-none"
             style={{
               backgroundPosition: "center",
               backgroundSize: "cover",
@@ -190,7 +192,7 @@ function CompetitionsList() {
             }}
           /></div>
 
-          <div className="flex lg:hidden order-2 gap-2 self-center flex-wrap">
+          <div className="flex lg:hidden order-2 gap-2 self-center flex-wrap text-display">
           {["all", "online", "offline"].map((mode) => (
             <div
               key={mode}
@@ -205,6 +207,7 @@ function CompetitionsList() {
                 border: "1px solid #000",
                 transition: "background-color 0.2s",
               }}
+              className="font-display"
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#D3D3D3")}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor =
@@ -218,7 +221,7 @@ function CompetitionsList() {
         </div>
 
         {/* Mode Filters for laptop*/}
-        <div className="hidden lg:flex  gap-2 mb-4 flex-wrap self-start">
+        <div className="hidden lg:flex  gap-2 mb-4 flex-wrap self-start text-display">
           {["all", "online", "offline"].map((mode) => (
             <div
               key={mode}

@@ -41,6 +41,37 @@ const LandingPage = () => {
   const testimonialRef = useRef(null);
   const footerRef = useRef(null);
   const [openindex, setOpenindex] = useState([]);
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+  let ticking = false;
+
+  const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            // scrolling down → hide header
+            setShowHeader(false);
+          } else {
+            // scrolling up → show header
+            setShowHeader(true);
+          }
+          setLastScrollY(currentScrollY);
+          ticking = false;
+        });
+
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
+
 
   const handleTabClickFromDropdown = (tabIndex) => {
     setOpenindex([tabIndex]); 
@@ -131,28 +162,14 @@ const LandingPage = () => {
     window.location.href = '/';
   };
 
-  const headerBgStyle = {
-    backgroundImage: `url(${backgroundPattern})`,
-    backgroundPosition: 'center',
-    backgroundSize: "100% auto",
-    backgroundRepeat: "no-repeat",
-  };
-
-  const mbheaderBgStyle = {
-    backgroundImage: `url(${mbbgpattern})`,
-    backgroundPosition: 'center',
-    backgroundSize: "100% auto",
-    backgroundRepeat: "no-repeat",
-  };
-
   return (
     <div>
       {loading && <Preloader />}
 
       {/* Page Content */}
-      <div className='pixelbg bg-alch-dark'>
+      
         {/* laptop */}
-        <header className="top-0 z-30 hidden lg:block">
+        <header className={`top-0 z-30 hidden lg:block fixed shadow-lg w-full bg-alch-dark ${showHeader ? 'header-visible' : 'header-hidden'}`}>
           <nav className="relative z-10 flex justify-between items-center py-4 px-4 sm:px-8">
             <Link to="/">
               <div>
@@ -168,8 +185,9 @@ const LandingPage = () => {
             <div className="hidden lg:flex items-center">
               <DecorativeButton to="#" variant="nav">
                 <div className="flex space-x-8 px-4 text-sm">
-                  <Link to="/about" className="text-alch-cream hover:text-white whitespace-nowrap">About us</Link>
+                  {/* <Link to="/about" className="text-alch-cream hover:text-white whitespace-nowrap">About us</Link> */}
                   <Link to="/competitions" className="text-alch-cream hover:text-white whitespace-nowrap">Modules & Competitions</Link>
+                  <p className='text-alch-cream hover:text-white whitespace-nowrap' onClick={ scrollToFAQ}>FAQ</p>
                 </div>
               </DecorativeButton>
             </div>
@@ -189,7 +207,7 @@ const LandingPage = () => {
         </header>
 
         {/* mobile */}
-        <header className="top-0 z-30 lg:hidden">
+        <header className={`top-0 z-30 lg:hidden fixed w-full bg-alch-dark ${showHeader ? 'header-visible' : 'header-hidden'}`}>
           <nav className="relative z-10 flex justify-between items-center py-4 px-4 sm:px-8">
             <Link to="/">
               <div>
@@ -205,13 +223,13 @@ const LandingPage = () => {
             <div className="hidden lg:flex items-center">
               <DecorativeButton to="#" variant="nav">
                 <div className="flex space-x-8 px-4 text-sm">
-                  <Link to="/about" className="text-alch-cream hover:text-white whitespace-nowrap">About us</Link>
+                  {/* <Link to="/about" className="text-alch-cream hover:text-white whitespace-nowrap">About us</Link> */}
                   <Link to="/competitions" className="text-alch-cream hover:text-white whitespace-nowrap">  Modules & Competitions</Link>
                 </div>
               </DecorativeButton>
             </div>
             <div className="hidden lg:flex items-center space-x-6">
-              <Link to="/contact" className="text-alch-cream hover:text-white">Contact us</Link>
+              <Link className="text-alch-cream hover:text-white" onClick={scrollToFooter}>Contact us</Link>
               {isAuthenticated ? (
                 <ProfileDropdown user={user} onLogout={handleLogout} />
               ) : (
@@ -233,15 +251,46 @@ const LandingPage = () => {
             </button>
           </div>
           <div className="flex flex-col items-center justify-center h-3/4 space-y-8 text-2xl">
-            <Link to="/about"  onClick={toggleMenu} className="text-alch-cream hover:text-white">About us</Link>
-            <Link to="/competitions" onClick={toggleMenu} className="text-alch-cream hover:text-white">Modules & Competitions</Link>
-            <Link to="/contact" onClick={toggleMenu} className="text-alch-cream hover:text-white">Contact us</Link>
+            {/* <Link to="/about"  onClick={toggleMenu} className="text-alch-cream hover:text-white">About us</Link> */}
+            {isAuthenticated && (
+              <>
+                <Link
+                  to="/profile"
+                  state={{ tabIndex: 1 }}
+                  onClick={toggleMenu}
+                  className="text-alch-cream hover:text-white"
+                >
+                  My Profile
+                </Link>
+
+                <Link
+                  to="/profile"
+                  state={{ tabIndex: 2 }}
+                  onClick={toggleMenu}
+                  className="text-alch-cream hover:text-white"
+                >
+                  My Registration
+                </Link>
+
+                <Link
+                  to="/profile"
+                  state={{ tabIndex: 3 }}
+                  onClick={toggleMenu}
+                  className="text-alch-cream hover:text-white"
+                >
+                  Team Members
+                </Link>
+              </>
+            )}
+            <Link onClick={()=>{toggleMenu();scrollToComp()}} className="text-alch-cream hover:text-white">Modules</Link>
+            <Link to="/competitions" onClick={toggleMenu} className="text-alch-cream hover:text-white">Competitions</Link>
+            <Link onClick={()=>{toggleMenu();scrollToFooter()}} className="text-alch-cream hover:text-white" >Contact us</Link>
 
             {/* Conditional links for mobile menu */}
             {isAuthenticated ? (
               <>
-                <Link to="/profile" state={{ tabIndex: 1 }} onClick={toggleMenu} className="text-alch-cream hover:text-white">My Profile</Link>
-                <Link to="/profile" state={{ tabIndex: 3 }} onClick={toggleMenu} className="text-alch-cream hover:text-white">Team Members</Link>
+                {/* <Link to="/profile" state={{ tabIndex: 1 }} onClick={toggleMenu} className="text-alch-cream hover:text-white">My Profile</Link>
+                <Link to="/profile" state={{ tabIndex: 3 }} onClick={toggleMenu} className="text-alch-cream hover:text-white">Team Members</Link> */}
                 <button
                   onClick={() => {
                     toggleMenu();
@@ -257,9 +306,11 @@ const LandingPage = () => {
             )}
           </div>
         </div>
-
+      
+      <div className='bg-alch-dark pixelbg'>
         <HeroSection isAuthenticated={isAuthenticated} />
       </div>
+
       <div className='landingbg'>
         <CompModules ref={compRef}/>
       </div>
@@ -269,7 +320,7 @@ const LandingPage = () => {
           className='bg-alch-cream landingbg'  
         >
             <AfterMovieSection />
-            <TestimonialsSection ref={testimonialRef}/>
+            {/* <TestimonialsSection ref={testimonialRef}/> */}
             <FAQS ref={faqRef}/>
             <Footer scrollToFAQ={scrollToFAQ} scrollToTestimonials={scrollToTestimonials} scrollToComp={scrollToComp} ref={footerRef}/>
         </div> 
