@@ -122,12 +122,12 @@ export function Footer({ scrollToFAQ, scrollToTestimonials, scrollToComp , ref }
                     </div>
                     {/* ===== END: NEW FLOWER ANIMATION ===== */}
 
-                    <div className="text-alch-cream text-[10px] lg:text-sm font-normal tracking-[0.02em] leading-[140%] h-[40px] lg:w-[1293px] w-full lg:ml-[79px] mt-[60px] flex justify-center lg:justify-between">
-                        <a href="https://alcheringa.co.in/" target="_blank" rel="noopener noreferrer" className="w-full lg:w-[257px] text-center lg:text-left text-alch-cream no-underline">
+                    <div className="text-alch-cream text-[10px] lg:text-sm font-normal tracking-[0.02em] leading-[140%] h-[40px] lg:w-[1293px] w-full lg:ml-[79px] mt-[60px] lg:mb-0 mb-[10px] flex lg:flex-row flex-col justify-between items-center">
+                        <a href="https://alcheringa.co.in/" target="_blank" rel="noopener noreferrer" className="text-alch-cream no-underline lg:mb-0 mb-[10px]">
                             Alcheringa @ 2025. All rights reserved.
                         </a>
-                        <div className="hidden lg:flex justify-between w-[339px] h-[40px]">
-                            <p>Developed by Team Web Operations</p>
+                        <div className='lg:mb-0 mb-[10px]'>
+                            Developed by Team Web Operations
                         </div>
                     </div>
                     <img className="w-full h-auto mt-auto" src="/image131footer.png" alt="image131"/>
