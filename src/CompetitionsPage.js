@@ -4,7 +4,7 @@ import addformbg from "./assets/backflowers.svg";
 import logo from "./assets/alcherlogo.svg";
 import "./CompetitionPage.css";
 import DecorativeButton from "./components/DecorativeButton";
-import flower from "./assets/heading-icon-red.svg";
+import flower from "./assets/white_flower.svg";
 import dropdown_back from "./assets/dropdown_back.svg";
 import searchbar_back from "./assets/searchbar_back.svg";
 import competitions from "./assets/competitions.svg";
@@ -272,10 +272,9 @@ function CompetitionsList() {
                       transition: "opacity 0.3s ease",
                     }}
                   >
-                    <h3 style={{ margin: 0, fontSize: "1.2rem", fontWeight: "bold",display:"flex",color:"#fff" }}><img src={flower} alt="Alcheringa Logo" style={{ height: "20px", cursor: "pointer" ,margin:"7px"}} /> {comp.event_name} <img src={flower} alt="Alcheringa Logo" style={{ height: "20px", cursor: "pointer" ,margin:"7px"}} /></h3>
-                    <p className="prize" style={{ margin: 0, fontSize: "0.9rem", textAlign: "center", color:"#fff"}}>{comp.event_desc}</p>
-                    <p className="prize" style={{ margin: 0, fontSize: "0.9rem", textAlign: "center", color:"#fff"}}>${comp.prize_worth}</p>
-
+                  <h3 style={{ margin: 0, fontSize: "1.2rem", fontWeight: "bold",textShadow:"2px 2px #000000",display:"flex",color:"#fff",fontFamily: "'TT Modernoir', sans-serif", }}><img src={flower} alt="Alcheringa Logo" style={{ height: "20px", cursor: "pointer" ,margin:"7px"}} /> {comp.event_name} <img src={flower} alt="Alcheringa Logo" style={{ height: "20px", cursor: "pointer" ,margin:"7px"}} /></h3>
+                  <p className="prize" style={{ margin: 0, fontSize: "0.9rem",textShadow:"2px 2px #000000", textAlign: "center", color:"#fff",height:"80px",width:"350px",overflow:"scroll"}}>{comp.event_desc}</p>
+                  <p className="prize" style={{ margin: 0, fontSize: "1rem",  textShadow:"2px 2px #000000",textAlign: "center",fontWeight:"bold", color:"#ffffffff"}}>Price worth <span style={{color:"#EF5243",fontSize: "1.3rem"}}>{comp.prize_worth/100}K</span></p>
                     <DecorativeButton to={`/register/${comp.id}`} onClick={() => setSelectedComp(comp)} className = "dec-btn" variant="orange-sm">Register</DecorativeButton>
                   
                   </div>   
