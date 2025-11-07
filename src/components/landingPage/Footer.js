@@ -91,7 +91,7 @@ export function Footer({ scrollToFAQ, scrollToTestimonials, scrollToComp , ref }
 
                         {/* --- DESKTOP ANIMATION --- */}
                         {/* Uses your new desktop-row-1.png and desktop-row-2.png */}
-                        <div className='hidden lg:block mt-[105px] w-full mx-auto'>
+                        <div className='hidden md:block mt-[105px] w-full mx-auto'>
                             {/* Row 1: Scrolls RIGHT */}
                             <div className="w-[200%] flex animate-scroll-right">
                                 {/* Two copies of the image for a seamless loop */}
@@ -107,7 +107,7 @@ export function Footer({ scrollToFAQ, scrollToTestimonials, scrollToComp , ref }
 
                         {/* --- MOBILE ANIMATION --- */}
                         {/* Uses your new mobile-row-1.png and mobile-row-2.png */}
-                        <div className='block lg:hidden mt-[80px] w-full'>
+                        <div className='block md:hidden mt-[80px] w-full'>
                             {/* Row 1: Scrolls RIGHT */}
                             <div className="w-[200%] flex animate-scroll-right">
                                 <img className="w-[50%] h-[42.5px] object-cover" src="/mobile-row-1.png" alt="footer row 1"/>
