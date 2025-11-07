@@ -74,7 +74,7 @@ export default function FAQItem({ question, answer, index }) {
           }}
           onClick={() => invert(index)}
         >
-          <p className="text-[rgba(238,236,217,1)] ml-[15px] font-bold text-[13px] tracking-[0.04em] leading-[110%]">
+          <p className="text-[rgba(238,236,217,1)] ml-[15px] font-bold text-[12px] tracking-[0.04em] leading-[110%]">
             {question}
           </p>
           <img
@@ -101,7 +101,7 @@ export default function FAQItem({ question, answer, index }) {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="flex justify-center items-center h-[110px] p-[10px] mt-[15px] font-normal text-[13px] tracking-[0.02em] leading-[140%] w-[300px] break-words whitespace-normal">
+          <div className="flex justify-center items-center h-[110px] p-[10px] mt-[15px] font-normal text-[12px] tracking-[0.02em] leading-[140%] w-[300px] break-words whitespace-normal">
             {answer}
           </div>
         </div>

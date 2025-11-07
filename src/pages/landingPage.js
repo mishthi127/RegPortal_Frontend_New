@@ -269,7 +269,7 @@ const LandingPage = () => {
                   onClick={toggleMenu}
                   className="text-alch-cream hover:text-white"
                 >
-                  My Registration
+                  My Registrations
                 </Link>
 
                 <Link

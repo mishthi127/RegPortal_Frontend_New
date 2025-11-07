@@ -66,7 +66,7 @@ export function Footer({ scrollToFAQ, scrollToTestimonials, scrollToComp , ref }
                             </ul>
                         </div>
                         <div className="text-alch-cream  w-[304px] flex flex-col items-center lg:items-start gap-[60px] lg:gap-0">
-                            <h1 className="h-[35] font-medium text-[32px] leading-[110.00000000000001%] tracking-[0.05em] mb-[10px]">CONTACT US</h1>
+                            <h1 className="h-[35] font-medium text-[32px] leading-[110.00000000000001%] tracking-[0.05em] mb-[18px]">CONTACT US</h1>
                             <div className="text-sm leading-[140%] tracking-[0.02em] flex lg:flex-row flex-col justify-between text-center lg:text-left gap-[50px] lg:gap-[20px]">
                                 <ul>
                                     <li className="h-[20px] font-bold mb-[10px]">Shashank Daga</li>
