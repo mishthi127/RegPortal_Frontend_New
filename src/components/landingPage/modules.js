@@ -55,7 +55,7 @@ export default function Modules({ module }) {
 
   return (
     <motion.div
-      className="double-notch-all relative inline-block rounded-xl overflow-hidden shadow-lg cursor-pointer w-[230px] h-[330px] lg:w-[280px] lg:h-[430px]"
+      className="double-notch-all relative inline-block rounded-xl overflow-hidden shadow-lg cursor-pointer w-[230px] h-[330px] lg:w-[300px] lg:h-[450px]"
       style={{backgroundImage: `url(${backendUrl}${module.module_icon})`, backgroundSize: 'cover', backgroundPosition: 'center'}}
       initial="rest"
       whileHover="hover"
