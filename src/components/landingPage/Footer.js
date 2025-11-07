@@ -69,14 +69,16 @@ export function Footer({ scrollToFAQ, scrollToTestimonials, scrollToComp , ref }
                             <h1 className="h-[35] font-medium text-[32px] leading-[110.00000000000001%] tracking-[0.05em] mb-[10px]">CONTACT US</h1>
                             <div className="text-sm leading-[140%] tracking-[0.02em] flex lg:flex-row flex-col justify-between text-center lg:text-left gap-[50px] lg:gap-[20px]">
                                 <ul>
-                                    <li className="h-[20px] font-bold mb-[10px]">Sudhanshu Raj</li>
+                                    <li className="h-[20px] font-bold mb-[10px]">Shashank Daga</li>
                                     <li className='mb-[10px]'>PR Head</li>
-                                    <div className='flex flex-row gap-[10px]'><img className='w-[20px] h-[22.52px]' src={phone} alt='phone'/><li className='inline-block'>+91 82929 67325</li></div>
+                                    <div className='flex flex-row items-center justify-center lg:justify-start gap-[10px] mb-[10px]'><img className='w-[20px] h-[22.52px]' src={phone} alt='phone'/><li className='inline-block'>+91 8240950055</li></div>
+                                    <div className='flex flex-row gap-[10px] items-center justify-center'><li className='inline-block'>shashank.d@alcheringa.co.in</li></div>
                                 </ul>
                                 <ul>
-                                    <li className="h-[20px] font-bold mb-[10px]">Sidharth Shukla</li>
+                                    <li className="h-[20px] font-bold mb-[10px]">Khushi Gupta</li>
                                     <li className='mb-[10px]'>PR Head</li>
-                                    <div className='flex flex-row gap-[10px]'><img className='w-[20px] h-[22.52px]' src={phone} alt='phone'/><li className='inline-block'>+91 73546 47811</li></div>
+                                    <div className='flex flex-row gap-[10px] mb-[10px] items-center lg:justify-start justify-center'><img className='w-[20px] h-[22.52px]' src={phone} alt='phone'/><li className='inline-block'>+91 9864875424</li></div>
+                                    <div className='flex flex-row gap-[10px] items-center justify-center'><li className='inline-block'>khushi.g@alcheringa.co.in</li></div>
                                 </ul>
                             </div>
                         </div>
