@@ -10,7 +10,7 @@ module.exports = {
       colors: {
         'alch-red': '#EF5243',
         'alch-cream': '#EEECD9',
-        'alch-dark': '#090909',
+        'alch-dark': '#171717',
         'brand-dark': '#090909',
         'brand-beige': '#EEECD9',
         'brand-orange': '#e89f55',
