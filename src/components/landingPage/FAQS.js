@@ -76,7 +76,7 @@ export const FAQS = forwardRef((props, ref) => {
         {
             question: "WHO SHOULD I CONTACT FOR QUERIES?",
             answer:
-            "For any queries, you can contact the respective event coordinators listed on the website or email us at info@alcheringa.co.in.",
+            "For any queries, you can contact the respective event coordinators listed on the website or email us at info@alcheringa.co.in",
         },
     ];
 

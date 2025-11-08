@@ -1,5 +1,5 @@
 .fotterbg {
-  background-image: url("../assets/blackbgpattern.svg");/* PC background */
+  background-image: url("../assets/blackbg.svg");/* PC background */
   background-repeat: repeat-y;
   background-size: 100% auto;
   background-position: 0 -190px;
@@ -8,7 +8,7 @@
 /* 🌐 For mobile screens (< sm in Tailwind = max-width: 639px) */
 @media (max-width: 639px) {
   .fotterbg {
-    background-image: url("../assets/mbbgpatternwh.svg"); /* mobile background */
+    background-image: url("../assets/blackbgmobile.svg"); /* mobile background */
     background-repeat: repeat-y;
     background-size: 100% auto;
     background-position: 0 -190px;
@@ -33,7 +33,7 @@
 }
 
 .pixelbg{
-  background-image: url("../assets/blackbgpattern.svg");
+  background-image: url("../assets/blackbg.svg");
   background-repeat: repeat-y;
   background-size: 100% auto;
   background-position: center;
@@ -42,7 +42,7 @@
 /* 🌐 For mobile screens (< sm in Tailwind = max-width: 639px) */
 @media (max-width: 639px) {
   .pixelbg{
-    background-image: url("../assets/mbbgpatternwh.svg"); /* mobile background */
+    background-image: url("../assets/blackbgmobile.svg"); /* mobile background */
     background-repeat: repeat-y;
     background-size: 100% auto;
     background-position: center;
