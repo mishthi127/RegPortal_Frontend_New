@@ -66,7 +66,8 @@ export const FAQS = forwardRef((props, ref) => {
         {
             question: "HOW CAN I VOLUNTEER OR JOIN THE ALCHERINGA TEAM?",
             answer:
-            "Recruitments for Alcheringa teams open at the start of the academic year. Keep an eye on official announcements and the Alcheringa website.",
+            `Recruitment for the Alcheringa core team is exclusive to IIT Guwahati students. However, if you're from another college, you can still be part of our extended community by joining the Campus Ambassador Program an opportunity to represent Alcheringa in your college and city, gain hands-on experience, and learn from India’s largest cultural fest team.
+             To know more and apply, visit caportal.alcheringa.co.in`,
         },
         {
             question: "WHERE CAN I FOLLOW ALCHERINGA UPDATES?",
