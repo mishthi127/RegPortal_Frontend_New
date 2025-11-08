@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axiosInstance from "./utils/axiosInstance";
 
 // Assets
@@ -53,7 +53,7 @@ const RegisterPage = () => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
   const handleAddMember = (member) => {
-    if (!teamMembers.includes(member) && teamMembers.length < 10) {
+    if (!teamMembers.includes(member) && teamMembers.length < (competition?.max_members || 1) - 1) {
       setTeamMembers((prev) => [...prev, member]);
     }
     setDropdownOpen(false);
@@ -66,6 +66,20 @@ const RegisterPage = () => {
     e.preventDefault();
     setLoading(true);
     setError("");
+
+// ✅ Validation for team member count (including leader)
+const minMembers = competition?.min_members || 1;
+const maxMembers = competition?.max_members || 1;
+
+const totalMembers = teamMembers.length + 1; // +1 for leader
+
+if (totalMembers < minMembers || totalMembers > maxMembers) {
+  setError(
+    `Total team size (including leader) must be between ${minMembers} and ${maxMembers}.`
+  );
+  setLoading(false);
+  return;
+}
 
     const finalData = {
       competition_id: id,
@@ -101,13 +115,11 @@ const RegisterPage = () => {
   };
 
   return (
-    <div
-      className="min-h-screen text-white pixelbg bg-alch-dark"
-    >
+    <div className="min-h-screen text-white pixelbg bg-alch-dark">
       {/* Header */}
       <div className="flex items-center justify-between px-6 py-4 max-w-screen-xl mx-auto">
-        <Link to="/" >
-        <img src={logo} alt="logo" className="h-10 w-auto" />
+        <Link to="/">
+          <img src={logo} alt="logo" className="h-10 w-auto" />
         </Link>
       </div>
 
@@ -129,17 +141,26 @@ const RegisterPage = () => {
             <div>
               {/* Competition Name */}
               <div className="flex items-center justify-center gap-4 mt-8 w-full">
-                <img src={flower} alt="left flower" className="w-8 h-8 sm:w-10 sm:h-10" />
+                <img
+                  src={flower}
+                  alt="left flower"
+                  className="w-8 h-8 sm:w-10 sm:h-10"
+                />
                 <h2 className="text-[#171717] text-center font-display text-[2.625rem] font-bold leading-normal capitalize">
                   {competition?.event_name || "Competition Name"}
                 </h2>
-                <img src={flower} alt="right flower" className="w-8 h-8 sm:w-10 sm:h-10" />
+                <img
+                  src={flower}
+                  alt="right flower"
+                  className="w-8 h-8 sm:w-10 sm:h-10"
+                />
               </div>
 
               {/* Module */}
               {competition?.event_module && (
                 <h3 className="text-[#171717] text-center font-display text-[2rem] font-medium capitalize mt-2">
-                  {competition?.event_module.module || competition?.event_module}
+                  {competition?.event_module.module ||
+                    competition?.event_module}
                 </h3>
               )}
 
@@ -180,29 +201,25 @@ const RegisterPage = () => {
                       <div className="flex flex-col items-center w-full">
                         <div className="bg-black w-[86%] h-[0.7rem]" />
                         <div className="bg-black w-[92%] h-[0.9rem]" />
-
                         <div
-                          className="bg-black text-white w-full p-5 overflow-hidden"
+                          className="bg-black text-white w-full p-5 overflow-hidden rounded-none"
                           style={{ maxHeight: "75vh" }}
                         >
                           <p className="text-center text-lg font-semibold text-[#f79b2b] mb-3">
                             Competition Guidelines
                           </p>
-
                           <div className="text-[#e5e5e5] text-sm whitespace-pre-line leading-relaxed overflow-y-auto max-h-[60vh] pr-2">
                             {competition?.event_rules || "No rules provided."}
                           </div>
-
                           <div className="mt-5 flex justify-center">
                             <DecoratedButton
-                              className="bg-[#f79b2b] hover:bg-[#f58e1f] text-black font-semibold px-6 py-2 rounded-md"
+                              className="bg-[#f79b2b] hover:bg-[#f58e1f] text-black font-semibold px-6 py-2 rounded-none"
                               onClick={() => setGuidelinesOpen(false)}
                             >
                               Agree
                             </DecoratedButton>
                           </div>
                         </div>
-
                         <div className="bg-black w-[92%] h-[0.9rem]" />
                         <div className="bg-black w-[86%] h-[0.7rem]" />
                       </div>
@@ -214,26 +231,22 @@ const RegisterPage = () => {
                     <div className="flex flex-col items-center w-full">
                       <div className="bg-black w-[86%] h-[0.7rem]" />
                       <div className="bg-black w-[92%] h-[0.9rem]" />
-
-                      <div className="bg-black text-white w-[25rem] p-5 max-h-[60vh] overflow-y-auto">
+                      <div className="bg-black text-white w-[25rem] p-5 max-h-[60vh] overflow-y-auto rounded-none">
                         <p className="text-center text-lg font-semibold text-[#f79b2b] mb-3">
                           Competition Guidelines
                         </p>
-
                         <div className="text-[#e5e5e5] text-sm whitespace-pre-line leading-relaxed overflow-y-auto max-h-[50vh] pr-2">
                           {competition?.event_rules || "No rules provided."}
                         </div>
-
                         <div className="mt-5 flex justify-center">
                           <DecoratedButton
-                            className="bg-[#f79b2b] hover:bg-[#f58e1f] text-black font-semibold px-6 py-2 rounded-md"
+                            className="bg-[#f79b2b] hover:bg-[#f58e1f] text-black font-semibold px-6 py-2 rounded-none"
                             onClick={() => setGuidelinesOpen(false)}
                           >
                             Agree
                           </DecoratedButton>
                         </div>
                       </div>
-
                       <div className="bg-black w-[92%] h-[0.9rem]" />
                       <div className="bg-black w-[86%] h-[0.7rem]" />
                     </div>
@@ -253,11 +266,7 @@ const RegisterPage = () => {
             <div>
               <label className="text-[#171717] text-[1.125rem] font-normal">
                 Add Members (Min {competition?.min_members} - Max {competition?.max_members})
-                {/* {competition?.min_members}
-                { competition?.max_members} */}
-                
               </label>
-
               <div className="flex flex-wrap gap-2 mb-3">
                 {teamMembers.length === 0 && (
                   <span className="text-sm text-gray-500">
