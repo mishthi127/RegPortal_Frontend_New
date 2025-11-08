@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import backgroundPattern from '../assets/background-pattern.svg';
+import backgroundPattern from '../assets/brightbg.svg';
 import topBorder from '../assets/top-border.svg';
 
 const Preloader = () => {

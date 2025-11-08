@@ -89,9 +89,9 @@ export default function Modules({ module }) {
           {loading ? (
             <p className="text-sm opacity-90">Loading competitions...</p>
           ) : competitions.length > 0 ? (
-            <ul className="text-sm space-y-1 no-scrollbar" style={{height:"100px",overflow:"scroll"}}>
+            <ul className="text-sm space-y-1 no-scrollbar">
               {competitions.map((comp) => (
-                  <li key={comp.id} className="bg-black/2 rounded-md p-1">
+                  <li key={comp.id} className="bg-black/2 rounded-md">
                     {comp.event_name}
                   </li>
               ))}

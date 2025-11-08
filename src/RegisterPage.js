@@ -102,13 +102,7 @@ const RegisterPage = () => {
 
   return (
     <div
-      className="min-h-screen text-white"
-      style={{
-        backgroundColor: "#151515",
-        backgroundImage: `url(${bgPattern})`,
-        backgroundRepeat: "repeat",
-        backgroundSize: "contain",
-      }}
+      className="min-h-screen text-white pixelbg bg-alch-dark"
     >
       {/* Header */}
       <div className="flex items-center justify-between px-6 py-4 max-w-screen-xl mx-auto">

@@ -50,7 +50,7 @@
 }
 
 .landingbg{
-  background-image: url("../assets/background-pattern.svg"); /* PC background */
+  background-image: url("../assets/brightbg.svg"); /* PC background */
   background-repeat: repeat-y;
   background-size: 100% auto;
   background-position: center;
