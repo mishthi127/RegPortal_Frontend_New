@@ -248,7 +248,7 @@ function CompetitionsList() {
         </div>
   
         {/* Competitions Grid */}
-        <div className="flex flex-col items-center justify-center w-[100%] bg-white">
+        <div className="flex flex-col items-center justify-center w-[100%]">
           <div 
             // className="flex flex-row flex-wrap gap-2 py-4 overflow-y-auto overscroll-contain h-[calc(100vh-200px)] no-scrollbar w-[100%] bg-neutral-700"
   className="
@@ -262,7 +262,6 @@ function CompetitionsList() {
     h-[calc(100vh-200px)] 
     no-scrollbar 
     w-full 
-    bg-neutral-700
   "
 >
 
