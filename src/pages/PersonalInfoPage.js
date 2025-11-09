@@ -13,7 +13,7 @@ import Stepper from '../components/AuthPage/Stepper.js';
 import { ReactComponent as CountryCodeInputBG } from '../assets/countryCode-input-bg.svg';
 import { ReactComponent as InputDeco } from '../assets/input-deco.svg';
 
-const BASE_URL = process.env.BACKEND_URL;
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
 const PersonalInfoPage = () => {
   const navigate = useNavigate();
