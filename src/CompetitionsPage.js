@@ -248,13 +248,40 @@ function CompetitionsList() {
         </div>
   
         {/* Competitions Grid */}
-        <div className="flex flex-col items-center justify-center w-[100%]">
-          <div className="flex flex-row flex-wrap gap-2 py-4 overflow-y-auto overscroll-contain h-[calc(100vh-200px)] no-scrollbar w-[100%]" >
+        <div className="flex flex-col items-center justify-center w-[100%] bg-white">
+          <div 
+            // className="flex flex-row flex-wrap gap-2 py-4 overflow-y-auto overscroll-contain h-[calc(100vh-200px)] no-scrollbar w-[100%] bg-neutral-700"
+  className="
+    flex 
+    flex-wrap 
+    justify-center 
+    gap-4 
+    py-4 
+    overflow-y-auto 
+    overscroll-contain 
+    h-[calc(100vh-200px)] 
+    no-scrollbar 
+    w-full 
+    bg-neutral-700
+  "
+>
+
             {filteredData.length > 0 ? (
               filteredData.map((comp) => (
                 <div
                   key={comp.id}
-                  className="competition-card card double-notch-all lg:w-[390px] lg:h-[281px] relative overflow-hidden m-[0.5rem]"
+                  className="
+  competition-card 
+  card 
+  double-notch-all 
+  w-full 
+  sm:w-[48%] 
+  [@media(min-width:920px)]:w-[31%] 
+  relative 
+  overflow-hidden 
+  aspect-[4/3]
+"
+
                   style={{background:`url(${backendUrl}${comp.image}) center/cover no-repeat `}}
                 >
                   <div
@@ -269,7 +296,6 @@ function CompetitionsList() {
                       flexDirection: "column",
                       justifyContent: "space-around",
                       alignItems: "center",
-                    
                       color: "#fff",
                       backgroundColor: "rgba(0, 0, 0, 0.4)", // adjust opacity for darkness
                       transition: "opacity 0.3s ease",
