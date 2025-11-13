@@ -308,7 +308,7 @@ function CompetitionsList() {
                       <img src={flower} alt="Alcheringa Logo" className="h-[19px]" />
                     </h3>
                     <p className="no-scrollbar prize [text-shadow:1px_1px_#888888] text-alch-cream" style={{ margin: 0, fontSize: "0.9rem", textAlign: "center",height:"80px",width:"350px",overflowY:"scroll"}}>{comp.event_desc}</p>
-                    <p className="prize [text-shadow:1px_1px_#888888] text-alch-cream" style={{ margin: 0, fontSize: "1rem",textAlign: "center",fontWeight:"bold"}}>Price worth <span style={{color:"#EF5243",fontSize: "1.3rem"}}>{comp.prize_worth}K</span></p>
+                    <p className="prize [text-shadow:1px_1px_#888888] text-alch-cream" style={{ margin: 0, fontSize: "1rem",textAlign: "center",fontWeight:"bold"}}>Price worth <span style={{color:"#EF5243",fontSize: "1.3rem"}}>{comp.prize_worth}K+</span></p>
                     <DecorativeButton to={`/register/${comp.id}`} onClick={() => setSelectedComp(comp)} className = "dec-btn" variant="orange-sm">Register</DecorativeButton>
                   </div>   
                 </div>
