@@ -108,7 +108,36 @@ if (totalMembers < minMembers || totalMembers > maxMembers) {
       );
       navigate("/profile", { state: { tabIndex: 2 } });
     } catch (err) {
-      setError(err.message || "Something went wrong.");
+      console.error("Registration Error:", err);
+
+      // Check if the server sent a specific error message
+      if (err.response && err.response.data) {
+        const data = err.response.data;
+
+        // 1. Check for the "You have already registered" error
+        if (data.error) {
+          setError(data.error);
+        } 
+        // 2. Check for "Invalid URL" errors (Django sends these as arrays)
+        else if (data.team_video) {
+          setError(data.team_video[0]); 
+        }
+        // 3. Check for Description errors
+        else if (data.description) {
+          setError(data.description[0]);
+        }
+        // 4. Fallback: Take the first available error found
+        else {
+          const firstKey = Object.keys(data)[0];
+          const firstError = data[firstKey];
+          // If it's an array (standard Django format), show the first item
+          const message = Array.isArray(firstError) ? firstError[0] : firstError;
+          setError(message);
+        }
+      } else {
+        // Fallback for network issues (server down, no internet)
+        setError("Something went wrong. Please check your internet connection.");
+      }
     } finally {
       setLoading(false);
     }
