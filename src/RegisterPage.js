@@ -294,7 +294,10 @@ if (totalMembers < minMembers || totalMembers > maxMembers) {
           <form onSubmit={handleSubmit} className="space-y-5 max-w-3xl">
             <div>
               <label className="text-[#171717] text-[1.125rem] font-normal">
-                Add Members (Min {competition?.min_members} - Max {competition?.max_members})
+                Add Members 
+                {competition?.max_members > 999 
+                   ? ` (Min ${competition?.min_members})` 
+                   : ` (Min ${competition?.min_members} - Max ${competition?.max_members})`}
               </label>
               <div className="flex flex-wrap gap-2 mb-3">
                 {teamMembers.length === 0 && (
